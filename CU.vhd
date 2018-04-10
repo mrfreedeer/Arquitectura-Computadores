@@ -1,3 +1,5 @@
+----------------------------------------------------------------------------------
+
 -- Company: iMacLinDows 
 -- Engineers: Juan Pablo Ospina Bustamante 
 --				  John Sebastián Luján Figueroa
