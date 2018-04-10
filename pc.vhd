@@ -1,16 +1,18 @@
-
 ----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 	John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	pc File Design
+-- Module Name:    	pc - Behavioral 
+-- Project Name: 	First Processor
+----------------------------------------------------------------------------------
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity pc is
     Port ( PCAddr : in  STD_LOGIC_VECTOR(31 downto 0);
