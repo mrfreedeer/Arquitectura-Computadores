@@ -1,5 +1,14 @@
+----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 	John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	Tb_adder File Design
+-- Module Name:    	Tb_adder - Behavioral 
+-- Project Name: 	First Processor
+----------------------------------------------------------------------------------
 
---------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
