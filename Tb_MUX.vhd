@@ -1,16 +1,25 @@
+----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 	John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	Tb_MUX File Design
+-- Module Name:    	Tb_MUX - Behavioral 
+-- Project Name: 	First Processor
+---------------------------------------------------------------------------------
+
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
+
 ENTITY Tb_MUX IS
 END Tb_MUX;
  
 ARCHITECTURE behavior OF Tb_MUX IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+
  
     COMPONENT MUX
     PORT(
