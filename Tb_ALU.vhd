@@ -1,16 +1,26 @@
+----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 	John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	Tb_ALU File Design
+-- Module Name:    	Tb-ALU - Behavioral 
+-- Project Name: 	First Processor
+
+--
+----------------------------------------------------------------------------------
+
+
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
  
 ENTITY Tb_ALU IS
 END Tb_ALU;
  
 ARCHITECTURE behavior OF Tb_ALU IS 
- 
-    -- Component Declaration for the Unit Under Test (UUT)
+
  
     COMPONENT ALU
     PORT(
