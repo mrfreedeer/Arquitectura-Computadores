@@ -1,11 +1,22 @@
+----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 	John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	Tb_IntegratedPC File Design
+-- Module Name:    	Tb_IntegratedPC - Behavioral 
+-- Project Name: 	First Processor
+
+--
+----------------------------------------------------------------------------------
+
+
 
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
+
  
 ENTITY tb_IntegratedPC IS
 END tb_IntegratedPC;
