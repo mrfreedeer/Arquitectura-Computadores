@@ -1,3 +1,13 @@
+----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 	John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	Tb_pc File Design
+-- Module Name:    	Tb_pc - Behavioral 
+-- Project Name: 	First Processor
+----------------------------------------------------------------------------------
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
