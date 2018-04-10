@@ -12,8 +12,8 @@ end ALU;
 architecture Behavioral of ALU is
 
 begin
-process(CRS1, RMUX) begin
-bucle: LOOP
+
+process(CRS1, RMUX, ALUOP) begin
 case ALUOP is
 	when "000000" =>
 		DWR <= STD_LOGIC_VECTOR(SIGNED(CRS1) + SIGNED(RMUX));
@@ -34,8 +34,6 @@ case ALUOP is
 	when others =>
 		DWR <= (others => '0');
 end case;
-END LOOP bucle;
 end process;
 
 end Behavioral;
-
