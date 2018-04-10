@@ -1,3 +1,16 @@
+----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--		John Sebastián Luján Figueroa
+-- 
+-- Create Date:   	16:13:07 04/10/2018 
+-- Design Name: 	MUX File Design
+-- Module Name:    	MUX - Behavioral 
+-- Project Name: 	First Processor
+
+--
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
