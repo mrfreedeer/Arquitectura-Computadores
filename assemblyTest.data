@@ -1,0 +1,5 @@
+mov 8, %g1
+add %g1, 21, %g2
+and %g1, %g2, %g3
+xor %g1, %g2, %g4
+sub %g2, 3, %g5
