@@ -26,7 +26,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity IntegratedPC is
     Port ( rst : in  STD_LOGIC;
            clk : in  STD_LOGIC;
-           PCout : out  STD_LOGIC_VECTOR (31 downto 0));
+           PCout : out  STD_LOGIC_VECTOR (5 downto 0));
 end IntegratedPC;
 
 architecture Behavioral of IntegratedPC is
@@ -49,7 +49,7 @@ signal rpc :  std_logic_vector (31 downto 0);
 signal rnpc :  std_logic_vector (31 downto 0);
 
 begin
-PCout <= rpc;
+PCout <= rpc(5 downto 0);
 
 inst_adder: adder PORT MAP(
 				A => X"00000004",

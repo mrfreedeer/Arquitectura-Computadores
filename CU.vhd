@@ -28,7 +28,7 @@ begin
 
 process(OP, OP3) begin
 	case OP is
-		when "01" =>
+		when "10" =>
 			case OP3 is
 				when "000000" =>
 					ALUOP <= OP3;

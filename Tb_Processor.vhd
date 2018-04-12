@@ -3,7 +3,7 @@
 -- Engineers: 	Juan Pablo Ospina Bustamante 
 --	 	John Sebastián Luján Figueroa
 -- 
--- Create Date:    	16:13:07 04/10/2018 
+-- Create Date:    	16:04:44 04/12/2018
 -- Design Name: 	Tb_IntegratedPC File Design
 -- Module Name:    	Tb_IntegratedPC - Behavioral 
 -- Project Name: 	First Processor
@@ -13,30 +13,34 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-
+use std.textio.all;
  
-ENTITY tb_IntegratedPC IS
-END tb_IntegratedPC;
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--USE ieee.numeric_std.ALL;
  
-ARCHITECTURE behavior OF tb_IntegratedPC IS 
+ENTITY Tb_Processor IS
+END Tb_Processor;
+ 
+ARCHITECTURE behavior OF Tb_Processor IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT IntegratedPC
+    COMPONENT Processor
     PORT(
-         rst : IN  std_logic;
+         reset : IN  std_logic;
          clk : IN  std_logic;
-         PCout : OUT  std_logic_vector(5 downto 0)
+         ALU_RESULT : OUT  std_logic_vector(31 downto 0)
         );
     END COMPONENT;
     
 
    --Inputs
-   signal rst : std_logic := '0';
+   signal reset : std_logic := '0';
    signal clk : std_logic := '0';
 
  	--Outputs
-   signal PCout : std_logic_vector(5 downto 0);
+   signal ALU_RESULT : std_logic_vector(31 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 40 ns;
@@ -44,10 +48,10 @@ ARCHITECTURE behavior OF tb_IntegratedPC IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: IntegratedPC PORT MAP (
-          rst => rst,
+   uut: Processor PORT MAP (
+          reset => reset,
           clk => clk,
-          PCout => PCout
+          ALU_RESULT => ALU_RESULT
         );
 
    -- Clock process definitions
@@ -63,12 +67,12 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      rst <= '1';
-      wait for 100 ns;	
-		rst <= '0';
-		
-
-
+		reset <= '1';
+      -- hold reset state for 100 ns.
+      wait for 40 ns;	
+		reset <= '0';
+		wait for 120 ns;
+      wait for clk_period*10;
 
       -- insert stimulus here 
 

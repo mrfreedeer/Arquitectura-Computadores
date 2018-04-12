@@ -14,6 +14,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use std.textio.all;
 
 
 entity Processor is
@@ -63,13 +64,13 @@ end component;
 component IntegratedPC is
     Port ( rst : in  STD_LOGIC;
            clk : in  STD_LOGIC;
-           PCout : out  STD_LOGIC_VECTOR (31 downto 0));
+           PCout : out  STD_LOGIC_VECTOR (5 downto 0));
 end component;
 
 component instructionMemory is
     Port ( 
 			  --clk : in STD_LOGIC;
-			  address : in  STD_LOGIC_VECTOR (31 downto 0);
+			  address : in  STD_LOGIC_VECTOR (5 downto 0);
            reset : in  STD_LOGIC;
            outInstruction : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
@@ -86,7 +87,7 @@ signal CRS2 : STD_LOGIC_VECTOR(31 downto 0);
 signal SIMM13 : STD_LOGIC_VECTOR(12 downto 0);
 signal ALUOP : STD_LOGIC_VECTOR(5 downto 0);
 signal SIMM32 : STD_LOGIC_VECTOR(31 downto 0);
-signal IMIN : STD_LOGIC_VECTOR(31 downto 0);
+signal IMIN : STD_LOGIC_VECTOR(5 downto 0);
 signal IMOUT : STD_LOGIC_VECTOR(31 downto 0);
 signal RMUX : STD_LOGIC_VECTOR(31 downto 0);
 
@@ -136,7 +137,7 @@ inst_ALU: ALU Port Map(
          RMUX => RMUX,
 			ALUOP => ALUOP,
          DWR => DWR);
-
+ALU_RESULT <= DWR;
 
 end Behavioral;
 
