@@ -1,13 +1,13 @@
 ----------------------------------------------------------------------------------
 
 -- Company: iMacLinDows 
--- Engineers: Juan Pablo Ospina Bustamante 
---				  John Sebastián Luján Figueroa
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 	John SebastiÃ¡n LujÃ¡n Figueroa
 -- 
--- Create Date:    17:18:31 04/10/2018
--- Design Name: 	 Processor File Design
--- Module Name:    Processor - Behavioral 
--- Project Name: 	 First Processor
+-- Create Date:    	17:18:31 04/10/2018
+-- Design Name: 	Processor File Design
+-- Module Name:    	Processor - Behavioral 
+-- Project Name: 	First Processor
 
 --
 
@@ -28,19 +28,19 @@ architecture Behavioral of Processor is
 component ALU is
     Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
            RMUX : in  STD_LOGIC_VECTOR (31 downto 0);
-			  ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
+           ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
            DWR : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
 component CU is
     Port ( OP : in  STD_LOGIC_VECTOR (1 downto 0);
            OP3 : in  STD_LOGIC_VECTOR (5 downto 0);
-		   ALUOP : out  STD_LOGIC_VECTOR (5 downto 0));
+	   ALUOP : out  STD_LOGIC_VECTOR (5 downto 0));
 end component;
 
 component MUX is
     Port ( i : in  STD_LOGIC;
-				CRS2 : in  STD_LOGIC_VECTOR (31 downto 0);
+	   CRS2 : in  STD_LOGIC_VECTOR (31 downto 0);
            IMM : in  STD_LOGIC_VECTOR (31 downto 0);
            RMUX : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
@@ -56,8 +56,8 @@ component RegisterFile is
 end component;
 
 component SEU is
-    Port ( 	imm13 : in  STD_LOGIC_VECTOR (12 downto 0);
-		exto : out STD_LOGIC_VECTOR (31 downto 0));
+    Port ( imm13 : in  STD_LOGIC_VECTOR (12 downto 0);
+	   exto : out STD_LOGIC_VECTOR (31 downto 0));
 
 end component;
 
@@ -68,9 +68,8 @@ component IntegratedPC is
 end component;
 
 component instructionMemory is
-    Port ( 
-			  --clk : in STD_LOGIC;
-			  address : in  STD_LOGIC_VECTOR (5 downto 0);
+    Port ( --clk : in STD_LOGIC;
+	   address : in  STD_LOGIC_VECTOR (5 downto 0);
            reset : in  STD_LOGIC;
            outInstruction : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
@@ -101,8 +100,8 @@ inst_IP : IntegratedPC Port Map (
 			);
 inst_IM : instructionMemory Port Map(
 			address => IMIN,
-         reset => reset,
-         outInstruction => IMOUT
+         		reset => reset,
+         		outInstruction => IMOUT
 			);
 RS1 <= IMOUT(18 downto 14);
 RS2 <= IMOUT(4 downto 0);
@@ -114,29 +113,29 @@ SIMM13 <= IMOUT(12 downto 0);
 
 inst_CU: CU   Port Map ( 
 			OP => OP,
-         OP3 => OP3,
-		   ALUOP => ALUOP);
+        		OP3 => OP3,
+		   	ALUOP => ALUOP);
 inst_RF: RegisterFile  Port Map (
 			rs1 => RS1,
-         rs2 => RS2,
-         rd => RD,
-         DWR => DWR,
-         reset => reset,
-         CRS1 => CRS1,
-         CRS2 => CRS2);
+         		rs2 => RS2,
+         		rd => RD,
+         		DWR => DWR,
+         		reset => reset,
+         		CRS1 => CRS1,
+         		CRS2 => CRS2);
 inst_SEU : SEU Port Map( 
 			imm13 => SIMM13,
 			exto => SIMM32);
 inst_MUX : MUX Port Map ( 
 			i => i,
 			CRS2 => CRS2,
-         IMM => SIMM32,
-         RMUX => RMUX);
+         		IMM => SIMM32,
+         		RMUX => RMUX);
 inst_ALU: ALU Port Map(
 			CRS1 => CRS1,
-         RMUX => RMUX,
+         		RMUX => RMUX,
 			ALUOP => ALUOP,
-         DWR => DWR);
+         		DWR => DWR);
 ALU_RESULT <= DWR;
 
 end Behavioral;
