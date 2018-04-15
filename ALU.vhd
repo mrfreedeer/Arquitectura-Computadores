@@ -1,11 +1,11 @@
 -- Company: iMacLinDows 
--- Engineers: Juan Pablo Ospina Bustamante 
---				  John Sebasti·n Luj·n Figueroa
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--		John Sebasti√°n Luj√°n Figueroa
 -- 
--- Create Date:    17:06:01 04/10/2018
--- Design Name: 	 ALU File Design
--- Module Name:    ALU - Behavioral 
--- Project Name: 	 First Processor
+-- Create Date: 	17:06:01 04/10/2018
+-- Design Name: 	ALU File Design
+-- Module Name:    	ALU - Behavioral 
+-- Project Name: 	First Processor
 
 --
 
@@ -19,7 +19,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity ALU is
     Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
            RMUX : in  STD_LOGIC_VECTOR (31 downto 0);
-			  ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
+	   ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
            DWR : out  STD_LOGIC_VECTOR (31 downto 0));
 end ALU;
 
