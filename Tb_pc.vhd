@@ -67,20 +67,19 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      PCAddr <= (others => '1');
-		rst <= '0';		
-		wait for 40 ns;
-		rst <= '1';
-		wait for 40 ns;
+      	PCAddr <= (others => '1');
+	rst <= '0';		
+	wait for 40 ns;
+	
+	rst <= '1';
+	wait for 40 ns;
 		
-		PCAddr <= "10101010101010101010101010101010";
-		rst <= '0';
-		wait for 40 ns;
+	PCAddr <= "10101010101010101010101010101010";
+	rst <= '0';
+	wait for 40 ns;
 		
-		rst <= '1';
-		
-		
-
+	rst <= '1';
+	
       wait;
    end process;
 
