@@ -14,10 +14,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
 ENTITY Tb_instructionMemory IS
 END Tb_instructionMemory;
  
@@ -57,17 +53,14 @@ BEGIN
 
    -- Stimulus process
    stim_proc: process
-   begin		
-		reset <= '1';
-		wait for 80 ns;
-		reset <= '0';
-		address <= "000000";
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
-     
-
-      -- insert stimulus here 
+   begin	
+	   
+	reset <= '1';
+	wait for 80 ns;
+	   
+	reset <= '0';
+	address <= "000000";
+     	wait for 100 ns;	
 
       wait;
    end process;
