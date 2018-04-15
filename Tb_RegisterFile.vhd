@@ -1,16 +1,14 @@
 ----------------------------------------------------------------------------------
 -- Company: iMacLinDows 
--- Engineers: Juan Pablo Ospina Bustamante 
---				  John Sebasti·n Luj·n Figueroa
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--		John Sebasti√°n Luj√°n Figueroa
 -- 
--- Create Date:    16:13:07 04/10/2018 
--- Design Name: 	 Register File Design
--- Module Name:    Test Bench RegisterFile - Behavioral 
--- Project Name: 	 First Processor
-
---
+-- Create Date: 	16:13:07 04/10/2018 
+-- Design Name: 	Register File Design
+-- Module Name:    	Test Bench RegisterFile - Behavioral 
+-- Project Name: 	First Processor
 ----------------------------------------------------------------------------------
---------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
@@ -71,36 +69,32 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-		reset <= '1';
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
-		reset <= '0';
-		rd <= "11111";
-		DWR <= X"0D00C000";
+      	reset <= '1';
+      	-- hold reset state for 100 ns.
+      	wait for 100 ns;	
+	   
+      	reset <= '0';
+      	rd <= "11111";
+      	DWR <= X"0D00C000";
+	wait for 100 ns;	
 		
-		wait for 100 ns;	
+	rd <= "00111";
+	DWR <= X"00ACAA00";
+	wait for 100 ns;	
 		
-		rd <= "00111";
-		DWR <= X"00ACAA00";
+	rs1 <= "11111";
+	rs2 <= "00111";
+	wait for 100 ns;	
 		
-		wait for 100 ns;	
+	rd <= "00000";
+	DWR <= X"FFFFFFFF";
+	wait for 100 ns;	
+	
+	rs1 <= "00000";
+	rs2 <= "00111";
+	wait for 100 ns;	
 		
-		rs1 <= "11111";
-		rs2 <= "00111";
-		
-		wait for 100 ns;	
-		
-		rd <= "00000";
-		DWR <= X"FFFFFFFF";
-		
-		wait for 100 ns;	
-		
-		rs1 <= "00000";
-		rs2 <= "00111";
-		
-		wait for 100 ns;	
-		
-      -- insert stimulus here 
+      
 
       wait;
    end process;
