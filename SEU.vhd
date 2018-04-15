@@ -3,12 +3,11 @@
 -- Engineers:	Juan Pablo Ospina Bustamante 
 --	   	John Sebastián Luján Figueroa
 -- 
--- Create Date:    16:13:07 04/10/2018 
--- Design Name: 	 SEU File Design
--- Module Name:    SEU - Behavioral 
--- Project Name: 	 First Processor
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	SEU File Design
+-- Module Name:    	SEU - Behavioral 
+-- Project Name: 	First Processor
 
---
 ----------------------------------------------------------------------------------
 
 library IEEE;
