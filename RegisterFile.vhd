@@ -1,15 +1,14 @@
 ----------------------------------------------------------------------------------
 -- Company: iMacLinDows 
--- Engineers: Juan Pablo Ospina Bustamante 
---				  John Sebasti·n Luj·n Figueroa
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--		John Sebasti√°n Luj√°n Figueroa
 -- 
--- Create Date:    16:13:07 04/10/2018 
--- Design Name: 	 Register File Design
--- Module Name:    RegisterFile - Behavioral 
--- Project Name: 	 First Processor
-
---
+-- Create Date:    	16:13:07 04/10/2018 
+-- Design Name: 	Register File Design
+-- Module Name:    	RegisterFile - Behavioral 
+-- Project Name: 	First Processor
 ----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
