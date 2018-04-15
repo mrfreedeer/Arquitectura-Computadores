@@ -57,10 +57,10 @@ BEGIN
    stim_proc: process
    begin		
       i<='1';
-		CRS2<=(others => '1');
-		IMM<=(others => '0');
+      CRS2<=(others => '1');
+      IMM<=(others => '0');
       wait for 100 ns;
-		i<='0';
+      i<='0';
 
       -- insert stimulus here 
 
