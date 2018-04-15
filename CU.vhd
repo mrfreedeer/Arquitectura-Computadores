@@ -1,13 +1,13 @@
 ----------------------------------------------------------------------------------
 
 -- Company: iMacLinDows 
--- Engineers: Juan Pablo Ospina Bustamante 
---				  John Sebastián Luján Figueroa
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--		John SebastiÃ¡n LujÃ¡n Figueroa
 -- 
--- Create Date:    17:06:01 04/10/2018
--- Design Name: 	 CU File Design
--- Module Name:    CU - Behavioral 
--- Project Name: 	 First Processor
+-- Create Date:   	17:06:01 04/10/2018
+-- Design Name: 	CU File Design
+-- Module Name:    	CU - Behavioral 
+-- Project Name: 	First Processor
 
 --
 
@@ -19,7 +19,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity CU is
     Port ( OP : in  STD_LOGIC_VECTOR (1 downto 0);
            OP3 : in  STD_LOGIC_VECTOR (5 downto 0);
-		   ALUOP : out  STD_LOGIC_VECTOR (5 downto 0));
+	   ALUOP : out  STD_LOGIC_VECTOR (5 downto 0));
 end CU;
 
 architecture Behavioral of CU is
@@ -32,7 +32,7 @@ process(OP, OP3) begin
 			case OP3 is
 				when "000000" =>
 					ALUOP <= OP3;
-			   when "000001" =>
+			  	when "000001" =>
 					ALUOP <= OP3;
 				when "000100" =>
 					ALUOP <= OP3;
