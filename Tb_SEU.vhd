@@ -52,14 +52,11 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns
-		imm13 <= "0110100010110";
-      wait for 20 ns;
-			imm13 <= "1110100010110";
-      wait for 20 ns;
-
-
-      -- insert stimulus here 
+  
+	imm13 <= "0110100010110";
+      	wait for 20 ns;
+	imm13 <= "1110100010110";
+      	wait for 20 ns;
 
       wait;
    end process;
