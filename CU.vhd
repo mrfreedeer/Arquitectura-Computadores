@@ -46,6 +46,8 @@ process(OP, OP3) begin
 					ALUOP <= OP3;
 				when "000110" =>
 					ALUOP <= OP3;
+				when "000111" =>
+					ALUOP <= OP3;
 				when others =>
 					ALUOP <= OP3;
 		end case;

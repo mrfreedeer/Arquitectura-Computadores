@@ -3,3 +3,6 @@ add %g1, 21, %g2
 and %g1, %g2, %g3
 xor %g1, %g2, %g4
 sub %g2, 3, %g5
+andn %g2,%g5,%g6
+orn %g2, 5, %g7
+xnor %g5, 9, %l0
