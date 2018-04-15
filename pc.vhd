@@ -28,10 +28,10 @@ begin
 process (clk) is
 begin
 	 	if rst = '1' then
-		PCout <= (others => '0'); 
-		 elsif rising_edge(clk) then 
-		 PCout <= PCAddr;
-		  end if;
+			PCout <= (others => '0'); 
+		elsif rising_edge(clk) then 
+			PCout <= PCAddr;
+		end if;
 
 end process;
 
