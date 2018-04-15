@@ -65,7 +65,7 @@ BEGIN
    begin		
       rst <= '1';
       wait for 100 ns;	
-		rst <= '0';
+      rst <= '0';
 		
 
 
