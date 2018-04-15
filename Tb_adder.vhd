@@ -57,24 +57,21 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      A <=  X"00000009";
-		B <=  X"0000000D";
+     	A <=  X"00000009";
+	B <=  X"0000000D";	
+     	wait for 100 ns;	
 		
-      wait for 100 ns;	
+	A <=  X"00000309";
+	B <=  X"0000001D";
+	wait for 100 ns;
 		
-		A <=  X"00000309";
-		B <=  X"0000001D";
-		wait for 100 ns;
+	A <=  X"00000D09";
+	B <=  X"00000C0D";
+	wait for 100 ns;	
 		
-		A <=  X"00000D09";
-		B <=  X"00000C0D";
-		wait for 100 ns;	
-		
-		A <=  X"0000A000";
-		B <=  X"0000000D";
-		wait for 100 ns;	
-
-      -- insert stimulus here 
+	A <=  X"0000A000";
+	B <=  X"0000000D";
+	wait for 100 ns;	
 
       wait;
    end process;
