@@ -1,22 +1,16 @@
 ----------------------------------------------------------------------------------
 -- Company: iMacLinDows 
--- Engineers: Juan Pablo Ospina Bustamante 
---				  John Sebasti·n Luj·n Figueroa
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--		John Sebasti√°n Luj√°n Figueroa
 -- 
--- Create Date:    17:06:40 04/10/2018
--- Design Name: 	 Tb_CU File Design
--- Module Name:    Tb_CU - Behavioral 
--- Project Name: 	 First Processor
-
---
-
+-- Create Date:    	17:06:40 04/10/2018
+-- Design Name: 	Tb_CU File Design
+-- Module Name:   	Tb_CU - Behavioral 
+-- Project Name: 	First Processor
 ----------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
  
 ENTITY Tb_CU IS
 END Tb_CU;
