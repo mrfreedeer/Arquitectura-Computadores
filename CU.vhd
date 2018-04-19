@@ -34,13 +34,11 @@ process(OP, OP3) begin
 					ALUOP <= OP3;
 			  	when "000001" =>
 					ALUOP <= OP3;
-				when "000100" =>
-					ALUOP <= OP3;
 				when "000010" =>
 					ALUOP <= OP3;
 				when "000011" =>
 					ALUOP <= OP3;
-				when "000111" =>
+				when "000100" =>
 					ALUOP <= OP3;
 				when "000101" =>
 					ALUOP <= OP3;
