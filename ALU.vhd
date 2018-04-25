@@ -17,10 +17,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL; 
 
 entity ALU is
-    Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
-           RMUX : in  STD_LOGIC_VECTOR (31 downto 0);
-	   ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
-           DWR : out  STD_LOGIC_VECTOR (31 downto 0));
+    Port ( 	CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
+				RMUX : in  STD_LOGIC_VECTOR (31 downto 0);
+				ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
+				C : in  STD_LOGIC;
+				DWR : out  STD_LOGIC_VECTOR (31 downto 0));
 end ALU;
 
 architecture Behavioral of ALU is
@@ -31,7 +32,7 @@ process(CRS1, RMUX, ALUOP) begin
 case ALUOP is
 	when "000000" =>
 		DWR <= STD_LOGIC_VECTOR(SIGNED(CRS1) + SIGNED(RMUX));
-   when "000001" =>
+   when "000001" | "010001" =>
 		DWR <= CRS1 and RMUX;
 	when "000100" =>
 		DWR <= STD_LOGIC_VECTOR(SIGNED(CRS1) - SIGNED(RMUX));
