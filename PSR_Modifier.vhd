@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 	17:06:01 04/10/2018
 -- Design Name: 	PSR_Modifier File Design
--- Module Name:    	PSR_Modifier - Behavioral 
+-- Module Name:   PSR_Modifier - Behavioral 
 -- Project Name: 	First Processor
 
 --
@@ -19,7 +19,7 @@ entity PSR_Modifier is
     Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
            RMUX : in  STD_LOGIC_VECTOR (31 downto 0);
            ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
-           DWR : in  STD_LOGIC_VECTOR (31 downto 0));
+           DWR : in  STD_LOGIC_VECTOR (31 downto 0);
            icc : out STD_LOGIC_VECTOR (3 downto 0)); -- NZVC
 end PSR_Modifier;
 
