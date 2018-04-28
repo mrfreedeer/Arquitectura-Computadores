@@ -26,7 +26,7 @@ end ALU;
 
 architecture Behavioral of ALU is
 
-signal carry : std_logic_vector(31 downto 0) := others => '0'; --32 bits para evitar problemas en operaciones
+signal carry : std_logic_vector(31 downto 0) := (others => '0'); --32 bits para evitar problemas en operaciones
 
 begin
 
@@ -38,7 +38,7 @@ case ALUOP is
 		DWR <= STD_LOGIC_VECTOR(SIGNED(CRS1) + SIGNED(RMUX));
     when "001000" | "011000"=> -- ADDX or ADDXcc
 		DWR <= STD_LOGIC_VECTOR(SIGNED(CRS1) + SIGNED(RMUX) + SIGNED(carry));
-    when ("000001" | "010001") => --AND or ANDcc
+    when "000001" | "010001" => --AND or ANDcc
 		DWR <= CRS1 and RMUX;
 	when "000100" | "010100"=> --SUB or SUBcc
 		DWR <= STD_LOGIC_VECTOR(SIGNED(CRS1) - SIGNED(RMUX));

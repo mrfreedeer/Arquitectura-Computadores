@@ -33,7 +33,8 @@ entity Windows_Manager is
            CWP : in  STD_LOGIC;
            nRS1 : out  STD_LOGIC_VECTOR (5 downto 0);
            nRS2 : out STD_LOGIC_VECTOR (5 downto 0);
-           nRD : out  STD_LOGIC_VECTOR (5 downto 0));
+           nRD : out  STD_LOGIC_VECTOR (5 downto 0);
+			  nCWP : out STD_LOGIC);
 end Windows_Manager;
 
 architecture Behavioral of Windows_Manager is
@@ -72,6 +73,16 @@ begin
 		else 
 			nRD(4 downto 0) <=  RD;
 			nRD (5) <= '0';
+		end if;
+		
+		if OP = "10" then
+			if (OP3 = "111100") and (CWP = '1') then -- SAVE
+				nCWP <= '0' ;
+			elsif (OP3 = "111101") and (CWP = '0') then -- RESTORE
+				nCWP <= '1';
+			else
+				nCWP <= CWP;
+			end if;
 		end if;
 
 	end process;
