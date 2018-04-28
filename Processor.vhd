@@ -142,16 +142,16 @@ i <= IMOUT(13);
 SIMM13 <= IMOUT(12 downto 0);
 
 inst_WM : Windows_Manager Port Map( 
-				RS1 => IMOUT(18 downto 14),
-				RS2 => IMOUT(4 downto 0),
-				RD => IMOUT(29 downto 25),
-				OP => IMOUT(31 downto 30),
-				OP3 => IMOUT(24 downto 19),
-				CWP => CWP,
-				nRS1 => RS1,
-				nRS2 => RS2,
-				nRD =>  Rd,
-				nCWP => nCWP);
+			RS1 => IMOUT(18 downto 14),
+			RS2 => IMOUT(4 downto 0),
+			RD => IMOUT(29 downto 25),
+			OP => IMOUT(31 downto 30),
+			OP3 => IMOUT(24 downto 19),
+			CWP => CWP,
+			nRS1 => RS1,
+			nRS2 => RS2,
+			nRD =>  Rd,
+			nCWP => nCWP);
 
 inst_CU: CU   Port Map ( 
 			OP => OP,
@@ -175,27 +175,27 @@ inst_SEU : SEU Port Map(
 inst_MUX : MUX Port Map ( 
 			i => i,
 			CRS2 => CRS2,
-         IMM => SIMM32,
-         RMUX => RMUX);
+        		IMM => SIMM32,
+         		RMUX => RMUX);
 			
 inst_PSR_Modifier : PSR_Modifier Port Map( 
-				CRS1 => CRS1,
-				RMUX => RMUX, 
-				ALUOP => ALUOP, 
-				DWR => DWR,
-				icc => icc); 
+			CRS1 => CRS1,
+			RMUX => RMUX, 
+			ALUOP => ALUOP, 
+			DWR => DWR,
+			icc => icc); 
 				
 inst_PSR:  PSR Port Map(
-				icc => icc,
-            nCWP => nCWP,
-            C =>  Carry,
-            CWP => CWP);
+			icc => icc,
+            		nCWP => nCWP,
+            		C =>  Carry,
+           		CWP => CWP);
 					
 inst_ALU: ALU Port Map(
-					CRS1 => CRS1,
+			CRS1 => CRS1,
          		RMUX => RMUX,
-					ALUOP => ALUOP,
-					C => Carry,
+			ALUOP => ALUOP,
+			C => Carry,
          		DWR => DWR);
 					
 ALU_RESULT <= DWR;
