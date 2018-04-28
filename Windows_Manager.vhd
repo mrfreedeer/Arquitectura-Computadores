@@ -1,11 +1,12 @@
 ----------------------------------------------------------------------------------
+
 -- Company: iMacLinDows 
 -- Engineers: 	Juan Pablo Ospina Bustamante 
 --		John Sebastián Luján Figueroa
 -- 
 -- Create Date: 		16:53:58 04/26/2018 
 -- Design Name: 		Windows_Manager File Design
--- Module Name:    	Windows_Manager - Behavioral 
+-- Module Name:    		Windows_Manager - Behavioral 
 -- Project Name: 		First Processor
 
 --
@@ -15,14 +16,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.std_logic_arith.all;
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity Windows_Manager is
     Port ( RS1 : in  STD_LOGIC_VECTOR (4 downto 0);
