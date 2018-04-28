@@ -5,7 +5,7 @@
 -- 
 -- Create Date: 		16:53:58 04/26/2018 
 -- Design Name: 		Windows_Manager File Design
--- Module Name:    	WIndows_Manager - Behavioral 
+-- Module Name:    	Windows_Manager - Behavioral 
 -- Project Name: 		First Processor
 
 --

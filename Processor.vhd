@@ -29,6 +29,7 @@ component ALU is
     Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
            RMUX : in  STD_LOGIC_VECTOR (31 downto 0);
            ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
+			  C : in  STD_LOGIC;
            DWR : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
@@ -46,9 +47,9 @@ component MUX is
 end component;
 
 component RegisterFile is
-    Port ( rs1 : in  STD_LOGIC_VECTOR (4 downto 0);
-           rs2 : in  STD_LOGIC_VECTOR (4 downto 0);
-           rd : in  STD_LOGIC_VECTOR (4 downto 0);
+    Port ( rs1 : in  STD_LOGIC_VECTOR (5 downto 0);
+           rs2 : in  STD_LOGIC_VECTOR (5 downto 0);
+           rd : in  STD_LOGIC_VECTOR (5 downto 0);
            DWR : in  STD_LOGIC_VECTOR (31 downto 0);
            reset : in  STD_LOGIC;
            CRS1 : out  STD_LOGIC_VECTOR (31 downto 0);
@@ -74,9 +75,39 @@ component instructionMemory is
            outInstruction : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
-signal RS1 : STD_LOGIC_VECTOR(4 downto 0);
-signal RS2 : STD_LOGIC_VECTOR(4 downto 0);
-signal Rd : STD_LOGIC_VECTOR(4 downto 0);
+component PSR_Modifier is
+    Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
+           RMUX : in  STD_LOGIC_VECTOR (31 downto 0);
+           ALUOP : in  STD_LOGIC_VECTOR (5 downto 0);
+           DWR : in  STD_LOGIC_VECTOR (31 downto 0);
+           icc : out STD_LOGIC_VECTOR (3 downto 0)); -- NZVC
+end component;
+
+component PSR is
+    Port (  icc : in STD_LOGIC_VECTOR (3 downto 0); -- NZVC
+            nCWP : in STD_LOGIC;
+            C : out STD_LOGIC;
+            CWP : out STD_LOGIC -- Current Window Pointer
+            );
+end component;
+
+component Windows_Manager is
+    Port ( RS1 : in  STD_LOGIC_VECTOR (4 downto 0);
+           RS2 : in  STD_LOGIC_VECTOR (4 downto 0);
+           RD : in  STD_LOGIC_VECTOR (4 downto 0);
+           OP : in  STD_LOGIC_VECTOR (1 downto 0);
+           OP3 : in  STD_LOGIC_VECTOR (5 downto 0);
+           CWP : in  STD_LOGIC;
+           nRS1 : out  STD_LOGIC_VECTOR (5 downto 0);
+           nRS2 : out STD_LOGIC_VECTOR (5 downto 0);
+           nRD : out  STD_LOGIC_VECTOR (5 downto 0);
+			  nCWP : out STD_LOGIC);
+end component;
+
+
+signal RS1 : STD_LOGIC_VECTOR(5 downto 0);
+signal RS2 : STD_LOGIC_VECTOR(5 downto 0);
+signal Rd : STD_LOGIC_VECTOR(5 downto 0);
 signal DWR : STD_LOGIC_VECTOR(31 downto 0);
 signal OP : STD_LOGIC_VECTOR(1 downto 0);
 signal OP3 : STD_LOGIC_VECTOR(5 downto 0);
@@ -89,7 +120,10 @@ signal SIMM32 : STD_LOGIC_VECTOR(31 downto 0);
 signal IMIN : STD_LOGIC_VECTOR(5 downto 0);
 signal IMOUT : STD_LOGIC_VECTOR(31 downto 0);
 signal RMUX : STD_LOGIC_VECTOR(31 downto 0);
-
+signal CWP : STD_LOGIC;
+signal nCWP: STD_LOGIC;
+signal icc : STD_LOGIC_VECTOR(3 downto 0);
+signal Carry : STD_LOGIC;
 
 
 begin
@@ -103,18 +137,27 @@ inst_IM : instructionMemory Port Map(
          		reset => reset,
          		outInstruction => IMOUT
 			);
-RS1 <= IMOUT(18 downto 14);
-RS2 <= IMOUT(4 downto 0);
-Rd <= IMOUT(29 downto 25);
-OP <= IMOUT(31 downto 30);
-OP3 <= IMOUT(24 downto 19);
+
 i <= IMOUT(13);
 SIMM13 <= IMOUT(12 downto 0);
+
+inst_WM : Windows_Manager Port Map( 
+				RS1 => IMOUT(18 downto 14),
+				RS2 => IMOUT(4 downto 0),
+				RD => IMOUT(29 downto 25),
+				OP => IMOUT(31 downto 30),
+				OP3 => IMOUT(24 downto 19),
+				CWP => CWP,
+				nRS1 => RS1,
+				nRS2 => RS2,
+				nRD =>  Rd,
+				nCWP => nCWP);
 
 inst_CU: CU   Port Map ( 
 			OP => OP,
         		OP3 => OP3,
 		   	ALUOP => ALUOP);
+				
 inst_RF: RegisterFile  Port Map (
 			rs1 => RS1,
          		rs2 => RS2,
@@ -123,19 +166,38 @@ inst_RF: RegisterFile  Port Map (
          		reset => reset,
          		CRS1 => CRS1,
          		CRS2 => CRS2);
+
+					
 inst_SEU : SEU Port Map( 
 			imm13 => SIMM13,
 			exto => SIMM32);
+			
 inst_MUX : MUX Port Map ( 
 			i => i,
 			CRS2 => CRS2,
-         		IMM => SIMM32,
-         		RMUX => RMUX);
+         IMM => SIMM32,
+         RMUX => RMUX);
+			
+inst_PSR_Modifier : PSR_Modifier Port Map( 
+				CRS1 => CRS1,
+				RMUX => RMUX, 
+				ALUOP => ALUOP, 
+				DWR => DWR,
+				icc => icc); 
+				
+inst_PSR:  PSR Port Map(
+				icc => icc,
+            nCWP => nCWP,
+            C =>  Carry,
+            CWP => CWP);
+					
 inst_ALU: ALU Port Map(
-			CRS1 => CRS1,
+					CRS1 => CRS1,
          		RMUX => RMUX,
-			ALUOP => ALUOP,
+					ALUOP => ALUOP,
+					C => Carry,
          		DWR => DWR);
+					
 ALU_RESULT <= DWR;
 
 end Behavioral;
