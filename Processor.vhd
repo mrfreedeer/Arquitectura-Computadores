@@ -140,13 +140,14 @@ inst_IM : instructionMemory Port Map(
 
 i <= IMOUT(13);
 SIMM13 <= IMOUT(12 downto 0);
-
+OP <= IMOUT(31 downto 30);
+OP3 <= IMOUT(24 downto 19);
 inst_WM : Windows_Manager Port Map( 
 			RS1 => IMOUT(18 downto 14),
 			RS2 => IMOUT(4 downto 0),
 			RD => IMOUT(29 downto 25),
-			OP => IMOUT(31 downto 30),
-			OP3 => IMOUT(24 downto 19),
+			OP => OP,
+			OP3 => OP3,
 			CWP => CWP,
 			nRS1 => RS1,
 			nRS2 => RS2,

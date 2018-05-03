@@ -1,17 +1,16 @@
---------------------------------------------------------------------------------
--- Company: iMacLinDows 
--- Engineers: 	Juan Pablo Ospina Bustamante 
---					John Sebastián Luján Figueroa
--- 
--- Create Date: 	16:23:59 04/26/2018
--- Design Name: 	PSR File Design
--- Module Name:   Tb_PSR - Behavioral 
--- Project Name: 	First Processor
-
---
 
 ----------------------------------------------------------------------------------
+-- Company: iMacLinDows 
+-- Engineers: Juan Pablo Ospina Bustamante 
+--	      John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	17:54:39 05/03/2018
+-- Design Name: 		Testbench PSR File Design
+-- Module Name:      Testbench PSR - Behavioral 
+-- Project Name: 		First Processor
 
+--
+----------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
@@ -30,8 +29,8 @@ ARCHITECTURE behavior OF Tb_PSR IS
     PORT(
          icc : IN  std_logic_vector(3 downto 0);
          nCWP : IN  std_logic;
-         clk : IN  std_logic;
          rst : IN  std_logic;
+			clk : IN std_logic;
          C : OUT  std_logic;
          CWP : OUT  std_logic
         );
@@ -41,15 +40,15 @@ ARCHITECTURE behavior OF Tb_PSR IS
    --Inputs
    signal icc : std_logic_vector(3 downto 0) := (others => '0');
    signal nCWP : std_logic := '0';
-   signal clk : std_logic := '0';
    signal rst : std_logic := '0';
-
+	signal clk : std_logic := '0';
  	--Outputs
    signal C : std_logic;
    signal CWP : std_logic;
-
-   -- Clock period definitions
-   constant clk_period : time := 40 ns;
+   -- No clocks detected in port list. Replace clk below with 
+   -- appropriate port name 
+ 
+   constant clk_period : time := 10 ns;
  
 BEGIN
  
@@ -57,7 +56,6 @@ BEGIN
    uut: PSR PORT MAP (
           icc => icc,
           nCWP => nCWP,
-          clk => clk,
           rst => rst,
           C => C,
           CWP => CWP
@@ -88,9 +86,6 @@ BEGIN
 		icc <= "0011";
 		nCWP <= '0';
 
-      wait for clk_period*10;
-
-      -- insert stimulus here 
 
       wait;
    end process;

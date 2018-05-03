@@ -27,6 +27,7 @@ ARCHITECTURE behavior OF Tb_ALU IS
          CRS1 : IN  std_logic_vector(31 downto 0);
          RMUX : IN  std_logic_vector(31 downto 0);
          ALUOP : IN  std_logic_vector(5 downto 0);
+			C : IN  STD_LOGIC;
          DWR : OUT  std_logic_vector(31 downto 0)
         );
     END COMPONENT;
@@ -36,6 +37,7 @@ ARCHITECTURE behavior OF Tb_ALU IS
    signal CRS1 : std_logic_vector(31 downto 0) := (others => '0');
    signal RMUX : std_logic_vector(31 downto 0) := (others => '0');
    signal ALUOP : std_logic_vector(5 downto 0) := (others => '0');
+	signal C : std_logic;
 
  	--Outputs
    signal DWR : std_logic_vector(31 downto 0);
@@ -48,6 +50,7 @@ BEGIN
           CRS1 => CRS1,
           RMUX => RMUX,
           ALUOP => ALUOP,
+			 C => C,
           DWR => DWR
         );
  

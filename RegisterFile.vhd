@@ -34,6 +34,7 @@ begin
 		begin
 		if (reset = '1') then
 			RF <= (others => X"00000000");
+			RF(31) <= X"7FFFFFFF";
 			CRS1 <=  (others => '0');
 			CRS2 <=  (others => '0');		
 		else
