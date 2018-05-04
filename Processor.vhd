@@ -84,7 +84,9 @@ component PSR_Modifier is
 end component;
 
 component PSR is
-    Port (  icc : in STD_LOGIC_VECTOR (3 downto 0); -- NZVC
+    Port (  rst: in STD_LOGIC;
+			clk: in STD_LOGIC;
+			icc : in STD_LOGIC_VECTOR (3 downto 0); -- NZVC
             nCWP : in STD_LOGIC;
             C : out STD_LOGIC;
             CWP : out STD_LOGIC -- Current Window Pointer
@@ -187,6 +189,8 @@ inst_PSR_Modifier : PSR_Modifier Port Map(
 			icc => icc); 
 				
 inst_PSR:  PSR Port Map(
+			rst => reset,
+			clk => clk,
 			icc => icc,
             		nCWP => nCWP,
             		C =>  Carry,
