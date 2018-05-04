@@ -25,7 +25,7 @@ end pc;
 architecture pc_arq of pc is
 
 begin
-process (clk) is
+process (clk,rst) is
 begin
 	 	if rst = '1' then
 			PCout <= (others => '0'); 

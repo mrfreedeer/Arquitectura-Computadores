@@ -28,7 +28,11 @@ end PSR;
 architecture Behavioral of PSR is
 
 begin
+<<<<<<< HEAD
+process(clk, rst, nCWP, icc)
+=======
 process(rst, nCWP, icc)
+>>>>>>> eedf8cb79f021db32a49daa458fd03d74312896b
 	begin 
 	if rst = '1' then
 		CWP <= '0';
