@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="D:/Processor/Tb_Processor_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/Users/utp/projects/Processor/Tb_Processor_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="numeric_std" />
             <top_module name="std_logic_1164" />
@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="16" />
    <wvobject fp_name="/tb_processor/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -80,5 +80,9 @@
       <obj_property name="ElementShortName">rd[5:0]</obj_property>
       <obj_property name="ObjectShortName">rd[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_WM/s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s</obj_property>
+      <obj_property name="ObjectShortName">s</obj_property>
    </wvobject>
 </wave_config>

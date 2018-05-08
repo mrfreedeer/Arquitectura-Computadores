@@ -10,7 +10,7 @@ orncc %l0 ,0, %l1
 addcc %g0, 0, %g0
 addcc %i7, 1, %g0 i7 se inicializo con x"7FFFFFFF"
 addcc %o1, 288, %i1
-restore
+restore %g0, 7, %l0
 addcc %g3, 18, %i0
 addcc %o1, 30, %i1
-save
+save %g0, 0, %g0
