@@ -31,19 +31,18 @@ entity Windows_Manager is
 end Windows_Manager;
 
 architecture Behavioral of Windows_Manager is
-signal S: std_logic:= '0';
 begin
-	nCWP <= S;
 	process(RS1, RS2, RD, OP, OP3, CWP)
 	begin
 		if OP = "10" then
-			if (OP3 = "111100") and (CWP = '1') then -- SAVE
-				S <= '0';
-			elsif (OP3 = "111101") and (CWP = '0') then -- RESTORE
-				S <= '1';
+			if (OP3 = "111100")  then -- SAVE
+				nCWP <= '0';
+			elsif (OP3 = "111101") then -- RESTORE
+				nCWP <= '1';
 			else
-				S <= CWP;
+				nCWP <= CWP;
 			end if;
+			
 		end if;
 		
 		
@@ -69,13 +68,18 @@ begin
 			nRS2 (5) <= '0';
 		end if;
 		
-		if ( RD>= "11000" and RD <= "11111") then
-			nRD <=conv_std_logic_vector(conv_integer(RD) - conv_integer(S)* 16, 6) ;
-		elsif (RD>= "10000" and RD <= "10111") then
-			nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer(S) * 16,6) ;
-		elsif ( RD>= "01000" and RD <= "01111") then
-			nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer(S) * 16,6) ;
-		else 
+		if (((OP3 = "111101") and OP = "10") or (CWP = '1' and OP3 /= "111100")) then
+			if ( RD>= "11000" and RD <= "11111") then
+				nRD <=conv_std_logic_vector(conv_integer(RD) - conv_integer('1')* 16, 6) ;
+			elsif (RD>= "10000" and RD <= "10111") then
+				nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer('1') * 16,6) ;
+			elsif ( RD>= "01000" and RD <= "01111") then
+				nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer('1') * 16,6) ;
+			else 
+				nRD(4 downto 0) <=  RD;
+				nRD (5) <= '0';
+			end if;
+		else
 			nRD(4 downto 0) <=  RD;
 			nRD (5) <= '0';
 		end if;

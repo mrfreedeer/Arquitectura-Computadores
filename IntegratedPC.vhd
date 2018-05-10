@@ -53,7 +53,7 @@ PCout <= rpc(5 downto 0);
 
 inst_adder: adder PORT MAP(
 				A => X"00000001",
-				B => rpc,
+				B => rnpc,
 				C => radder
 				);
 
