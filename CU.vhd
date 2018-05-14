@@ -89,11 +89,11 @@ process(icc, OP, OP3, cond) begin
                     branchEn <= not V;
                 when others =>
                     branchEn <= '0';
-            PCSOURCE <= "01" when branchEn='1' else
-                        "10" when branchEn='0';
+				end case;
 		when others =>
             ALUOP <= "111111";
 	end case;
+	 PCSOURCE <= "01" when branchEn='1' else "10" when branchEn='0';
 end process;
 
 end Behavioral;
