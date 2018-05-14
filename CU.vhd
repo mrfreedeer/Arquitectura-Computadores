@@ -100,6 +100,7 @@ process(icc, OP, OP3, cond) begin
                     branchEn <= not V;
                 when others =>
                     branchEn <= '0';
+            end case;
             RFDEST <= '0';
             RFSOURCE <= "00";
             wrEnMem <= '0';
@@ -134,6 +135,7 @@ process(icc, OP, OP3, cond) begin
                     ALUOP <= "000000";
                     PCSOURCE <= "00";
                     WE <= '0';
+            end case;
         when "01" => --Call
             RFDEST <= '1';
             RFSOURCE <= "10";
