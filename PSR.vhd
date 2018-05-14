@@ -21,6 +21,7 @@ entity PSR is
 				rst : in STD_LOGIC;
 				clk : in STD_LOGIC;
             C : out STD_LOGIC;
+				iccO : out STD_LOGIC_VECTOR(3 downto 0);
             CWP : out STD_LOGIC -- Current Window Pointer
             );
 end PSR;
@@ -34,10 +35,12 @@ process(clk, rst, nCWP, icc)
 	if rst = '1' then
 		CWP <= '0';
 		C <= '0';
+		iccO <= "0000";
 	else 
 		if rising_edge(clk) then
 			CWP <= nCWP;
 			C <= icc(0);
+			iccO <= "0000";
 		end if;
 	end if;
 end process;

@@ -7,8 +7,8 @@ entity MUX4x1 is Port (
     in1 : in  STD_LOGIC_VECTOR (31 downto 0);
     in2 : in  STD_LOGIC_VECTOR (31 downto 0);
     in3 : in  STD_LOGIC_VECTOR (31 downto 0);
-    RMUX : out  STD_LOGIC_VECTOR (31 downto 0)
-); end MUX4x1;
+    RMUX : out  STD_LOGIC_VECTOR (31 downto 0));
+ end MUX4x1;
 
 architecture Behavioral of MUX4x1 is
 

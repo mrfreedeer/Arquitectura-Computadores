@@ -19,6 +19,7 @@ entity RegisterFile is
            rs2 : in  STD_LOGIC_VECTOR (5 downto 0);
            rd : in  STD_LOGIC_VECTOR (5 downto 0);
            DWR : in  STD_LOGIC_VECTOR (31 downto 0);
+			  WE : in STD_LOGIC;
            reset : in  STD_LOGIC;
            CRS1 : out  STD_LOGIC_VECTOR (31 downto 0);
            CRS2 : out  STD_LOGIC_VECTOR (31 downto 0);
@@ -38,12 +39,14 @@ begin
 			RF(31) <= X"7FFFFFFF";
 			CRS1 <=  (others => '0');
 			CRS2 <=  (others => '0');		
-		else
-			CRS1 <= RF(conv_integer(rs1));
-			CRS2 <= RF(conv_integer(rs2));
-			CRD  <= RF(conv_integer(rd));
-			if (rd /= "000000") then
-				RF(conv_integer(rd)) <= DWR;
+		else 
+			if (WE = '1') then
+				CRS1 <= RF(conv_integer(rs1));
+				CRS2 <= RF(conv_integer(rs2));
+				CRD  <= RF(conv_integer(rd));
+				if (rd /= "000000") then
+					RF(conv_integer(rd)) <= DWR;
+				end if;
 			end if;
 		end if;
 		
