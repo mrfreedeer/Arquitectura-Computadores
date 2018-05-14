@@ -46,6 +46,13 @@ component MUX is
            RMUX : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
+component MUX2x1 is Port (
+    i : in  STD_LOGIC;
+    in0 : in  STD_LOGIC_VECTOR (31 downto 0);
+    in1 : in  STD_LOGIC_VECTOR (31 downto 0);
+    RMUX : out  STD_LOGIC_VECTOR (31 downto 0)); 
+end component;
+
 component RegisterFile is
     Port ( rs1 : in  STD_LOGIC_VECTOR (5 downto 0);
            rs2 : in  STD_LOGIC_VECTOR (5 downto 0);
@@ -53,7 +60,8 @@ component RegisterFile is
            DWR : in  STD_LOGIC_VECTOR (31 downto 0);
            reset : in  STD_LOGIC;
            CRS1 : out  STD_LOGIC_VECTOR (31 downto 0);
-           CRS2 : out  STD_LOGIC_VECTOR (31 downto 0));
+           CRS2 : out  STD_LOGIC_VECTOR (31 downto 0);
+			  CRD  : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
 component SEU is
@@ -106,6 +114,14 @@ component Windows_Manager is
 			  nCWP : out STD_LOGIC);
 end component;
 
+component DataMemory is Port (
+    dataIn : in  STD_LOGIC_VECTOR (31 downto 0);
+    address : in  STD_LOGIC_VECTOR (31 downto 0);
+    reset : in  STD_LOGIC;
+    wrEnMem : in  STD_LOGIC;
+    rdEnMem : in  STD_LOGIC;
+    dataOut : out  STD_LOGIC_VECTOR (31 downto 0));
+end component;
 
 signal RS1 : STD_LOGIC_VECTOR(5 downto 0);
 signal RS2 : STD_LOGIC_VECTOR(5 downto 0);
@@ -116,6 +132,7 @@ signal OP3 : STD_LOGIC_VECTOR(5 downto 0);
 signal i : STD_LOGIC;
 signal CRS1 : STD_LOGIC_VECTOR(31 downto 0);
 signal CRS2 : STD_LOGIC_VECTOR(31 downto 0);
+signal CRD : STD_LOGIC_VECTOR(31 downto 0);
 signal SIMM13 : STD_LOGIC_VECTOR(12 downto 0);
 signal ALUOP : STD_LOGIC_VECTOR(5 downto 0);
 signal SIMM32 : STD_LOGIC_VECTOR(31 downto 0);
@@ -126,6 +143,7 @@ signal CWP : STD_LOGIC;
 signal nCWP: STD_LOGIC;
 signal icc : STD_LOGIC_VECTOR(3 downto 0);
 signal Carry : STD_LOGIC;
+signal DMOUT : STD_LOGIC_VECTOR(3 downto 0);
 
 
 begin
@@ -163,12 +181,13 @@ inst_CU: CU   Port Map (
 				
 inst_RF: RegisterFile  Port Map (
 			rs1 => RS1,
-         		rs2 => RS2,
-         		rd => RD,
-         		DWR => DWR,
-         		reset => reset,
-         		CRS1 => CRS1,
-         		CRS2 => CRS2);
+         rs2 => RS2,
+         rd => RD,
+         DWR => DWR,
+         reset => reset,
+         CRS1 => CRS1,
+         CRS2 => CRS2,
+			CRD  => CRD);
 
 					
 inst_SEU : SEU Port Map( 
@@ -178,8 +197,8 @@ inst_SEU : SEU Port Map(
 inst_MUX : MUX Port Map ( 
 			i => i,
 			CRS2 => CRS2,
-        		IMM => SIMM32,
-         		RMUX => RMUX);
+        	IMM => SIMM32,
+         RMUX => RMUX);
 			
 inst_PSR_Modifier : PSR_Modifier Port Map( 
 			CRS1 => CRS1,
@@ -192,16 +211,31 @@ inst_PSR:  PSR Port Map(
 			rst => reset,
 			clk => clk,
 			icc => icc,
-            		nCWP => nCWP,
-            		C =>  Carry,
-           		CWP => CWP);
+         nCWP => nCWP,
+         C =>  Carry,
+         CWP => CWP);
 					
 inst_ALU: ALU Port Map(
 			CRS1 => CRS1,
-         		RMUX => RMUX,
+         RMUX => RMUX,
 			ALUOP => ALUOP,
 			C => Carry,
-         		DWR => DWR);
+         DWR => DWR);
+inst_DM: DataMemory Port Map (
+		 dataIn => CRD,
+		 address => DWR,
+		 reset  => reset, 
+		 wrEnMem => ,
+		 rdEnMem => ,
+		 dataOut => DMOUT);
+
+
+inst_MUXDM: MUX2x1 Port Map(
+			 i  => ,
+			 in0 => DWR,
+			 in1 => DMOUT,
+			 RMUX => ALU_RESULT);
+
 					
 ALU_RESULT <= DWR;
 

@@ -21,7 +21,8 @@ entity RegisterFile is
            DWR : in  STD_LOGIC_VECTOR (31 downto 0);
            reset : in  STD_LOGIC;
            CRS1 : out  STD_LOGIC_VECTOR (31 downto 0);
-           CRS2 : out  STD_LOGIC_VECTOR (31 downto 0));
+           CRS2 : out  STD_LOGIC_VECTOR (31 downto 0);
+			  CRD  : out  STD_LOGIC_VECTOR (31 downto 0));
 end RegisterFile;
 
 architecture Behavioral of RegisterFile is
@@ -40,6 +41,7 @@ begin
 		else
 			CRS1 <= RF(conv_integer(rs1));
 			CRS2 <= RF(conv_integer(rs2));
+			CRD  <= RF(conv_integer(rd));
 			if (rd /= "000000") then
 				RF(conv_integer(rd)) <= DWR;
 			end if;

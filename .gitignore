@@ -19,3 +19,8 @@ isim/Tb_Processor_isim_beh.exe.sim/tmp_save/_1
 *.ini
 *.xlsx
 *.projectmgr
+*.xst
+*.ref
+*.vho
+*.stx
+.lso

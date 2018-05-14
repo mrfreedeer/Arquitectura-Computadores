@@ -8,12 +8,12 @@ entity DataMemory is Port (
     reset : in  STD_LOGIC;
     wrEnMem : in  STD_LOGIC;
     rdEnMem : in  STD_LOGIC;
-    dataOut : out  STD_LOGIC_VECTOR (31 downto 0);
-); end DataMemory;
+    dataOut : out  STD_LOGIC_VECTOR (31 downto 0));
+ end DataMemory;
 
 architecture Behavioral of DataMemory is
 
-type ram_type is array(0 to 31) of std_logic_vector (31 downto 0);
+type ram_type is array(0 to 63) of std_logic_vector (31 downto 0);
 
 signal DM: ram_type := (others => x"00000000");
 begin
