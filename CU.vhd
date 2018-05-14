@@ -13,8 +13,8 @@ entity CU is Port (
     wrEnMem : out  STD_LOGIC;
     rdEnMem : out  STD_LOGIC;
     ALUOP : out  STD_LOGIC_VECTOR (5 downto 0);
-    PCSOURCE : out  STD_LOGIC_VECTOR (1 downto 0);
-); end CU;
+    PCSOURCE : out  STD_LOGIC_VECTOR (1 downto 0));
+    end CU;
 
 architecture Behavioral of CU is
 
