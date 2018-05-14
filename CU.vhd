@@ -14,8 +14,8 @@ entity CU is Port (
     rdEnMem : out  STD_LOGIC;
     ALUOP : out  STD_LOGIC_VECTOR (5 downto 0);
     PCSOURCE : out  STD_LOGIC_VECTOR (1 downto 0);
-	 WE : out STD_LOGIC);
-    end CU;
+    WE : out  STD_LOGIC
+); end CU;
 
 architecture Behavioral of CU is
 
@@ -30,6 +30,12 @@ begin
 process(icc, OP, OP3, cond) begin
 	case OP is
 		when "10" =>
+            RFDEST <= '0';
+            RFSOURCE <= "01";
+            wrEnMem <= '0';
+            rdEnMem <= '0';
+            PCSOURCE <= "10";
+            WE <= '1';
 			case OP3 is
 				when "000000" =>
 					ALUOP <= OP3;
@@ -47,6 +53,10 @@ process(icc, OP, OP3, cond) begin
 					ALUOP <= OP3;
 				when "000111" =>
 					ALUOP <= OP3;
+                when "111000" => --Jump and link
+                    RFSOURCE <= "10";
+                    ALUOP <= "000000";
+                    PCSOURCE <= "11";
 				when "111100" =>
 					ALUOP <= "000000";
 				when "111101" =>
@@ -90,10 +100,57 @@ process(icc, OP, OP3, cond) begin
                     branchEn <= not V;
                 when others =>
                     branchEn <= '0';
-				end case;
-		when others =>
-            ALUOP <= "111111";
+            RFDEST <= '0';
+            RFSOURCE <= "00";
+            wrEnMem <= '0';
+            rdEnMem <= '0';
+            ALUOP <= "000000";
+            PCSOURCE <= "01" when branchEn='1' else
+                        "10" when branchEn='0';
+            WE <= '0';
+		when "11" => --Load/Store
+            case OP3 is
+                when "000000" => --LD
+                    RFDEST <= '0';
+                    RFSOURCE <= "00";
+                    wrEnMem <= '0';
+                    rdEnMem <= '1';
+                    ALUOP <= "000000";
+                    PCSOURCE <= "10";
+                    WE <= '1';
+                when "000100" => --ST
+                    RFDEST <= '0';
+                    RFSOURCE <= "00";
+                    wrEnMem <= '1';
+                    rdEnMem <= '0';
+                    ALUOP <= "000000";
+                    PCSOURCE <= "10";
+                    WE <= '0';
+                when others =>
+                    RFDEST <= '0';
+                    RFSOURCE <= "00";
+                    wrEnMem <= '0';
+                    rdEnMem <= '0';
+                    ALUOP <= "000000";
+                    PCSOURCE <= "00";
+                    WE <= '0';
+        when "01" => --Call
+            RFDEST <= '1';
+            RFSOURCE <= "10";
+            wrEnMem <= '0';
+            rdEnMem <= '0';
+            ALUOP <= "000000";
+            PCSOURCE <= "00";
+            WE <= '1';
+        when others =>
+            RFDEST <= '0';
+            RFSOURCE <= "00";
+            wrEnMem <= '0';
+            rdEnMem <= '0';
+            ALUOP <= "000000";
+            PCSOURCE <= "00";
+            WE <= '0';
 	end case;
 end process;
-PCSOURCE <= "01" when branchEn='1' else "10" when branchEn='0';
+
 end Behavioral;
