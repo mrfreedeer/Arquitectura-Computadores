@@ -2,12 +2,12 @@
 
 -- Company: iMacLinDows 
 -- Engineers: 	Juan Pablo Ospina Bustamante 
---	 	John Sebastián Luján Figueroa
+--	 				John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	15:58:29 04/28/2018
 -- Design Name: 		Windows Manager Testbench File Design
 -- Module Name:    	Tb_Windows_Manager - Behavioral 
--- Project Name: 		First Processor
+-- Project Name: 		Third Processor
 
 --
 
