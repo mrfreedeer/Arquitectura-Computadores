@@ -6,7 +6,7 @@
 -- Create Date:    	17:06:40 04/10/2018
 -- Design Name: 	Tb_CU File Design
 -- Module Name:   	Tb_CU - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 	Third Processor
 ----------------------------------------------------------------------------------
 
 LIBRARY ieee;
