@@ -2,12 +2,12 @@
 
 -- Company: iMacLinDows 
 -- Engineers: 	Juan Pablo Ospina Bustamante 
---	 	John Sebastián Luján Figueroa
+--	 				John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	17:18:31 04/10/2018
--- Design Name: 	Processor File Design
+-- Design Name: 		Processor File Design
 -- Module Name:    	Processor - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 		Second Processor
 
 --
 
