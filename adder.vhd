@@ -6,7 +6,7 @@
 -- Create Date:    	16:13:07 04/10/2018 
 -- Design Name: 	adder File Design
 -- Module Name:    	adder - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 	Second Processor
 ----------------------------------------------------------------------------------
 
 
