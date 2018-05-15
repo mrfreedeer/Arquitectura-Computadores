@@ -1,3 +1,15 @@
+----------------------------------------------------------------------------------
+
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 				John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	19:16:31 05/14/2018
+-- Design Name: 		SEU_22 File Design
+-- Module Name:    	SEU_22 - Behavioral 
+-- Project Name: 		Third Processor
+
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -7,6 +19,7 @@ entity SEU_22 is
 		exto : out STD_LOGIC_VECTOR (31 downto 0));
 
 end SEU_22;
+
 
 architecture Behavioral of SEU_22 is
 

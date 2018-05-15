@@ -1,3 +1,18 @@
+----------------------------------------------------------------------------------
+
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 				John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	19:11:43 05/14/2018
+-- Design Name: 		CU File Design
+-- Module Name:    	CU - Behavioral 
+-- Project Name: 		Third Processor
+
+----------------------------------------------------------------------------------
+
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -14,8 +29,8 @@ entity CU is Port (
     rdEnMem : out  STD_LOGIC;
     ALUOP : out  STD_LOGIC_VECTOR (5 downto 0);
     PCSOURCE : out  STD_LOGIC_VECTOR (1 downto 0);
-    WE : out  STD_LOGIC
-); end CU;
+    WE : out  STD_LOGIC);
+	 end CU;
 
 architecture Behavioral of CU is
 
@@ -106,8 +121,11 @@ process(icc, OP, OP3, cond) begin
             wrEnMem <= '0';
             rdEnMem <= '0';
             ALUOP <= "000000";
-            PCSOURCE <= "01" when branchEn='1' else
-                        "10" when branchEn='0';
+				if (branchEn = '1') then
+					PCSOURCE <= "01"; 
+            else
+					PCSOURCE <= "10";
+				end if;
             WE <= '0';
 		when "11" => --Load/Store
             case OP3 is

@@ -5,9 +5,7 @@
 -- Create Date: 	17:06:01 04/10/2018
 -- Design Name: 	PSR_Modifier File Design
 -- Module Name:   PSR_Modifier - Behavioral 
--- Project Name: 	First Processor
-
---
+-- Project Name: 	Third Processor
 
 ----------------------------------------------------------------------------------
 

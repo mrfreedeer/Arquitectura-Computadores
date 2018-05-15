@@ -1,13 +1,11 @@
 -- Company: iMacLinDows 
 -- Engineers: 	Juan Pablo Ospina Bustamante 
---		John Sebastián Luján Figueroa
+--					John Sebastián Luján Figueroa
 -- 
--- Create Date: 	17:06:01 04/10/2018
--- Design Name: 	PSR File Design
+-- Create Date: 		17:06:01 04/10/2018
+-- Design Name: 		PSR File Design
 -- Module Name:    	PSR - Behavioral 
--- Project Name: 	First Processor
-
---
+-- Project Name: 		Third Processor
 
 ----------------------------------------------------------------------------------
 

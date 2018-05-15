@@ -1,3 +1,16 @@
+----------------------------------------------------------------------------------
+
+-- Company: iMacLinDows 
+-- Engineers: 	Juan Pablo Ospina Bustamante 
+--	 				John Sebastián Luján Figueroa
+-- 
+-- Create Date:    	19:09:31 05/14/2018
+-- Design Name: 		MUX4x1 File Design
+-- Module Name:    	MUX4x1 - Behavioral 
+-- Project Name: 		Third Processor
+
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -8,7 +21,7 @@ entity MUX4x1 is Port (
     in2 : in  STD_LOGIC_VECTOR (31 downto 0);
     in3 : in  STD_LOGIC_VECTOR (31 downto 0);
     RMUX : out  STD_LOGIC_VECTOR (31 downto 0));
- end MUX4x1;
+end MUX4x1;
 
 architecture Behavioral of MUX4x1 is
 

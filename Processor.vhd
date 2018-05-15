@@ -5,9 +5,9 @@
 --	 	John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	17:18:31 04/10/2018
--- Design Name: 	Processor File Design
+-- Design Name: 		Processor File Design
 -- Module Name:    	Processor - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 		Third Processor
 
 --
 
@@ -53,6 +53,13 @@ component MUX is
 	 CRS2 : in  STD_LOGIC_VECTOR (31 downto 0);
 	 IMM : in  STD_LOGIC_VECTOR (31 downto 0);
 	 RMUX : out  STD_LOGIC_VECTOR (31 downto 0));
+end component;
+
+component MUX2x1_6bit is Port (
+    i : in  STD_LOGIC;
+    in0 : in  STD_LOGIC_VECTOR (5 downto 0);
+    in1 : in  STD_LOGIC_VECTOR (5 downto 0);
+    RMUX : out  STD_LOGIC_VECTOR (5 downto 0));
 end component;
 
 component MUX2x1 is Port (
@@ -175,7 +182,7 @@ signal DATATOMEM : STD_LOGIC_VECTOR(31 downto 0);
 signal DATATOREG : STD_LOGIC_VECTOR(31 downto 0);
 signal wrEnMem : STD_LOGIC;
 signal rdEnMem : STD_LOGIC;
-signal RFSOURCE : STD_LOGIC;
+signal RFSOURCE : STD_LOGIC_VECTOR(1 downto 0);
 signal RFDEST : STD_LOGIC;
 signal PCSOURCE : STD_LOGIC_VECTOR (1 downto 0);
 signal WE : STD_LOGIC;
@@ -213,7 +220,7 @@ inst_CU: CU   Port Map (
 			icc => icc,
 			OP => OP,
         	OP3 => OP3,
-			cond => IMOUT(28 downto 24),
+			cond => IMOUT(28 downto 25),
 			RFDEST => RFDEST,
 			RFSOURCE => RFSOURCE,
 			wrEnMem => wrEnMem,
@@ -244,10 +251,10 @@ inst_MUX : MUX Port Map (
         	IMM => SIMM32,
          RMUX => RMUX);
 			
-inst_MUX2X1 : MUX2x1 Port Map(
+inst_MUX2X1_6bit : MUX2x1_6bit Port Map(
 			i => RFDEST,
 			in0 => nRd, 
-			in1 => X"0000000F",
+			in1 => "001111",
 			RMUX => Rd); 
 			
 inst_PSR_Modifier : PSR_Modifier Port Map( 
@@ -277,13 +284,13 @@ inst_DM: DataMemory Port Map (
 		 reset  => reset, 
 		 wrEnMem => wrEnMem,
 		 rdEnMem => rdEnMem,
-		 dataOut => DMOUT);
+		 dataOut => DATATOMEM);
 
 inst_MUXDM: MUX3x1 Port Map(
 			 i  => RFSOURCE ,
 			 in0 => DWR,
 			 in1 => DATATOMEM,
-			 in2 => IMIN,
+			 in2 => IMOUT,
 			 RMUX => DATATOREG);
 
 					
