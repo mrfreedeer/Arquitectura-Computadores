@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------------------
 -- Company: iMacLinDows 
 -- Engineers: 	Juan Pablo Ospina Bustamante 
---	 	John Sebastián Luján Figueroa
+--	 				John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	16:04:44 04/12/2018
--- Design Name: 	Tb_IntegratedPC File Design
+-- Design Name: 		Tb_IntegratedPC File Design
 -- Module Name:    	Tb_IntegratedPC - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 		Third Processor
 
 --
 ----------------------------------------------------------------------------------

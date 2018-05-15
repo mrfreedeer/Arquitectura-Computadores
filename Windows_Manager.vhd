@@ -9,8 +9,6 @@
 -- Module Name:    	Windows_Manager - Behavioral 
 -- Project Name: 		Third Processor
 
---
-
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
