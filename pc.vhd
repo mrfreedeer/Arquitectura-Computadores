@@ -6,7 +6,7 @@
 -- Create Date:    	16:13:07 04/10/2018 
 -- Design Name: 	pc File Design
 -- Module Name:    	pc - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 	Second Processor
 ----------------------------------------------------------------------------------
 
 
