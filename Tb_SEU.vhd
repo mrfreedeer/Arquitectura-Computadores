@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------------------
 -- Company: iMacLinDows 
--- Engineers: 	Juan Pablo Ospina Bustamante 
---	 	John Sebastián Luján Figueroa
+-- Engineers: 		Juan Pablo Ospina Bustamante 
+--	 					John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	16:13:07 04/10/2018 
--- Design Name: 	Tb_SEU File Design
+-- Design Name: 		Tb_SEU File Design
 -- Module Name:    	Tb_SEU - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 		Second Processor
 ----------------------------------------------------------------------------------
 
 

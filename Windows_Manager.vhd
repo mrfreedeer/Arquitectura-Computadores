@@ -2,12 +2,12 @@
 
 -- Company: iMacLinDows 
 -- Engineers: 	Juan Pablo Ospina Bustamante 
---		John Sebastián Luján Figueroa
+--					John Sebastián Luján Figueroa
 -- 
 -- Create Date: 		16:53:58 04/26/2018 
 -- Design Name: 		Windows_Manager File Design
--- Module Name:    		Windows_Manager - Behavioral 
--- Project Name: 		First Processor
+-- Module Name:    	Windows_Manager - Behavioral 
+-- Project Name: 		Second Processor
 
 --
 

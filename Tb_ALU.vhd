@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------------------
 -- Company: iMacLinDows 
 -- Engineers: 	Juan Pablo Ospina Bustamante 
---	 	John Sebastián Luján Figueroa
+--	 				John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	16:13:07 04/10/2018 
--- Design Name: 	Tb_ALU File Design
+-- Design Name: 		Tb_ALU File Design
 -- Module Name:    	Tb_ALU - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 		Second Processor
 
 --
 ----------------------------------------------------------------------------------

@@ -4,9 +4,9 @@
 --		John Sebastián Luján Figueroa
 -- 
 -- Create Date:   	16:13:07 04/10/2018 
--- Design Name: 	MUX File Design
+-- Design Name: 		MUX File Design
 -- Module Name:    	MUX - Behavioral 
--- Project Name: 	First Processor
+-- Project Name: 		Second Processor
 
 --
 ----------------------------------------------------------------------------------

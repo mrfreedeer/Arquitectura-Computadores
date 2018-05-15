@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------------------
 -- Company: iMacLinDows 
 -- Engineers: Juan Pablo Ospina Bustamante 
---	      John Sebastián Luján Figueroa
+--	      	John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	10:26:38 10/28/2012  
--- Design Name: 	IntegratedPC File Design
--- Module Name:      	IntegratedPC - Behavioral 
--- Project Name: 	First Processor
+-- Design Name: 		IntegratedPC File Design
+-- Module Name:      IntegratedPC - Behavioral 
+-- Project Name: 		Second Processor
 
 --
 ----------------------------------------------------------------------------------
