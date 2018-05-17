@@ -48,6 +48,12 @@ component CU is
 	 WE : out STD_LOGIC);
 end component;
 
+component adder is
+    Port ( A : in  STD_LOGIC_VECTOR(31 downto 0);
+           B : in  STD_LOGIC_VECTOR(31 downto 0);
+           C : out  STD_LOGIC_VECTOR(31 downto 0));
+end component;
+
 component MUX is
     Port ( 	i : in  STD_LOGIC;
 	 CRS2 : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -98,7 +104,7 @@ component RegisterFile is
 			  CRD  : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
-component SEU is
+component SEU_13 is
     Port ( imm13 : in  STD_LOGIC_VECTOR (12 downto 0);
 	   exto : out STD_LOGIC_VECTOR (31 downto 0));
 
@@ -107,6 +113,8 @@ end component;
 component IntegratedPC is
     Port ( rst : in  STD_LOGIC;
            clk : in  STD_LOGIC;
+			  PCin : in STD_LOGIC_VECTOR(31 downto 0);
+			  PC32out: out STD_LOGIC_VECTOR(31 downto 0);
            PCout : out  STD_LOGIC_VECTOR (5 downto 0));
 end component;
 
@@ -157,6 +165,18 @@ component DataMemory is Port (
     dataOut : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
+component SEU_30 is
+    Port ( 	disp30 : in  STD_LOGIC_VECTOR (29 downto 0);
+				exto : out STD_LOGIC_VECTOR (31 downto 0));
+end component;
+
+component SEU_22 is
+    Port ( 	disp22 : in  STD_LOGIC_VECTOR (21 downto 0);
+				exto : out STD_LOGIC_VECTOR (31 downto 0));
+end component;
+
+
+
 signal RS1 : STD_LOGIC_VECTOR(5 downto 0);
 signal RS2 : STD_LOGIC_VECTOR(5 downto 0);
 signal Rd : STD_LOGIC_VECTOR(5 downto 0);
@@ -186,11 +206,20 @@ signal RFSOURCE : STD_LOGIC_VECTOR(1 downto 0);
 signal RFDEST : STD_LOGIC;
 signal PCSOURCE : STD_LOGIC_VECTOR (1 downto 0);
 signal WE : STD_LOGIC;
- 
+signal disp30 : STD_LOGIC_VECTOR (31 downto 0);
+signal disp22 : STD_LOGIC_VECTOR (31 downto 0); 
+signal pcplusdisp30 : STD_LOGIC_VECTOR (31 downto 0);
+signal pcplusdisp22 : STD_LOGIC_VECTOR (31 downto 0);
+signal nPCin : STD_LOGIC_VECTOR(31 downto 0);
+signal PCout : STD_LOGIC_VECTOR(31 downto 0);
+
 begin
+
 inst_IP : IntegratedPC Port Map (
 			rst => reset,
 			clk => clk,
+			PCin => nPCin,
+			PC32out => PCout,
 			PCout => IMIN
 			);
 inst_IM : instructionMemory Port Map(
@@ -204,6 +233,24 @@ SIMM13 <= IMOUT(12 downto 0);
 OP <= IMOUT(31 downto 30);
 OP3 <= IMOUT(24 downto 19);
 
+inst_SEU_30 : SEU_30 Port Map(
+			disp30 => IMOUT(29 downto 0),
+			exto => disp30);
+			
+inst_SEU_22 : SEU_22 Port Map ( 
+			disp22 => IMOUT(21 downto 0),
+			exto => disp22);
+			
+inst_adder_1 : adder Port Map ( 
+			A => PCout,
+         B => disp30,
+         C => pcplusdisp30);
+
+inst_adder_2 : adder Port Map ( 
+			A => PCout,
+         B => disp22,
+         C => pcplusdisp22);
+			
 inst_WM : Windows_Manager Port Map( 
 			RS1 => IMOUT(18 downto 14),
 			RS2 => IMOUT(4 downto 0),
@@ -241,14 +288,14 @@ inst_RF: RegisterFile  Port Map (
 			CRD  => CRD);
 
 					
-inst_SEU : SEU Port Map( 
+inst_SEU_13 : SEU_13 Port Map( 
 			imm13 => SIMM13,
 			exto => SIMM32);
 			
-inst_MUX : MUX Port Map ( 
+inst_MUX2x1 : MUX2x1 Port Map ( 
 			i => i,
-			CRS2 => CRS2,
-        	IMM => SIMM32,
+			in0 => CRS2,
+        	in1 => SIMM32,
          RMUX => RMUX);
 			
 inst_MUX2X1_6bit : MUX2x1_6bit Port Map(
@@ -292,6 +339,13 @@ inst_MUXDM: MUX3x1 Port Map(
 			 in1 => DATATOMEM,
 			 in2 => IMOUT,
 			 RMUX => DATATOREG);
+inst_MUX4x1 : MUX4x1 Port Map (
+    i => PCSOURCE,
+    in0 => pcplusdisp30,
+    in1 => pcplusdisp22,
+    in2 => PCout,
+    in3 => DWR,
+    RMUX => nPCin);
 
 					
 ALU_RESULT <= DATATOREG;

@@ -17,6 +17,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity IntegratedPC is
     Port ( rst : in  STD_LOGIC;
            clk : in  STD_LOGIC;
+			  PCin : in STD_LOGIC_VECTOR(31 downto 0);
+			  PC32out: out STD_LOGIC_VECTOR(31 downto 0);
            PCout : out  STD_LOGIC_VECTOR (5 downto 0));
 end IntegratedPC;
 
@@ -47,9 +49,9 @@ inst_adder: adder PORT MAP(
 				B => rnpc,
 				C => radder
 				);
-
+PC32out <= radder;
 inst_npc: pc PORT MAP(
-				PCAddr => radder,
+				PCAddr => PCin,
 				rst => rst,
 				clk => clk,
 				PCout => rnpc
