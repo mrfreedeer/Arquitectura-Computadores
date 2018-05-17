@@ -24,3 +24,5 @@ isim/Tb_Processor_isim_beh.exe.sim/tmp_save/_1
 *.vho
 *.stx
 .lso
+isim/Tb_MUX2x1_isim_beh.exe.sim/tmp_save/_1
+isim/Tb_SEU_13_isim_beh.exe.sim/tmp_save/_1
