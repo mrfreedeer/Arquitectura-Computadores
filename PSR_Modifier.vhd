@@ -48,8 +48,7 @@ case ALUOP is
         end if;
         icc(1) <= (CRS1(31) and (not RMUX(31)) and (not DWR(31))) or ((not CRS1(31)) and RMUX(31) and DWR(31));
         icc(0) <= ((not CRS1(31)) and RMUX(31)) or (DWR(31) and ((not CRS1(31)) or RMUX(31)));
-	when others =>
-		icc <= (others => '0');
+	when others => null;
         
 end case;
 end process;

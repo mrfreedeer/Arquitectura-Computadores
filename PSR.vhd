@@ -38,7 +38,7 @@ process(clk, rst, nCWP, icc)
 		if rising_edge(clk) then
 			CWP <= nCWP;
 			C <= icc(0);
-			iccO <= "0000";
+			iccO <= icc;
 		end if;
 	end if;
 end process;

@@ -134,12 +134,13 @@ component PSR_Modifier is
 end component;
 
 component PSR is
-    Port (  rst: in STD_LOGIC;
-			clk: in STD_LOGIC;
-			icc : in STD_LOGIC_VECTOR (3 downto 0); -- NZVC
-         nCWP : in STD_LOGIC;
-         C : out STD_LOGIC;
-         CWP : out STD_LOGIC -- Current Window Pointer
+    Port (  icc : in STD_LOGIC_VECTOR (3 downto 0); -- NZVC
+            nCWP : in STD_LOGIC;
+				rst : in STD_LOGIC;
+				clk : in STD_LOGIC;
+            C : out STD_LOGIC;
+				iccO : out STD_LOGIC_VECTOR(3 downto 0);
+            CWP : out STD_LOGIC -- Current Window Pointer
             );
 end component;
 
@@ -196,7 +197,8 @@ signal IMOUT : STD_LOGIC_VECTOR(31 downto 0);
 signal RMUX : STD_LOGIC_VECTOR(31 downto 0);
 signal CWP : STD_LOGIC;
 signal nCWP: STD_LOGIC;
-signal icc : STD_LOGIC_VECTOR(3 downto 0);
+signal iccin : STD_LOGIC_VECTOR(3 downto 0);
+signal icc : STD_LOGIC_VECTOR (3 downto 0);
 signal Carry : STD_LOGIC;
 signal DATATOMEM : STD_LOGIC_VECTOR(31 downto 0);
 signal DATATOREG : STD_LOGIC_VECTOR(31 downto 0);
@@ -309,14 +311,17 @@ inst_PSR_Modifier : PSR_Modifier Port Map(
 			RMUX => RMUX, 
 			ALUOP => ALUOP, 
 			DWR => DWR,
-			icc => icc); 
-				
+			icc => iccin); 
+
+
+
 inst_PSR:  PSR Port Map(
+			icc => iccin,
+			nCWP => nCWP,
 			rst => reset,
 			clk => clk,
-			icc => icc,
-         nCWP => nCWP,
          C =>  Carry,
+			iccO => icc,
          CWP => CWP);
 					
 inst_ALU: ALU Port Map(
