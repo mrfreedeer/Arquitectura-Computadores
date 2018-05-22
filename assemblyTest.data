@@ -17,3 +17,4 @@ save %g0, 0, %l0
 addxcc %i5, %i6, %g2 --i5 se inicializo con x"C0000000", y %i6 con X"40000000"
 subx %g2, 3, %g5
 or %g5, 0, %g1
+cmp %g5, %g2
