@@ -34,7 +34,6 @@ entity CU is Port (
 
 architecture Behavioral of CU is
 
-signal branchEn : STD_LOGIC;
 signal N : STD_LOGIC;
 signal Z : STD_LOGIC;
 signal V : STD_LOGIC ;
@@ -45,7 +44,11 @@ N <= icc(3);
 Z <= icc(2);
 V <= icc(1);
 C <= icc(0);
-process(icc, OP, OP3, cond) begin
+process(icc, OP, OP3, cond)
+variable branchEn : std_logic;
+ begin
+
+
 	case OP is
 		when "10" =>
             RFDEST <= '0';
@@ -71,10 +74,10 @@ process(icc, OP, OP3, cond) begin
 					ALUOP <= OP3;
 				when "000111" =>
 					ALUOP <= OP3;
-                when "111000" => --Jump and link
-                    RFSOURCE <= "10";
-                    ALUOP <= "000000";
-                    PCSOURCE <= "11";
+            when "111000" => --Jump and link
+               RFSOURCE <= "10";
+               ALUOP <= "000000";
+               PCSOURCE <= "11";
 				when "111100" =>
 					ALUOP <= "000000";
 				when "111101" =>
@@ -85,39 +88,39 @@ process(icc, OP, OP3, cond) begin
         when "00" => --Branch
             case cond is
                 when "0000" => --BN
-                    branchEn <= '0';
+                    branchEn := '0';
                 when "0001" => --BE
-                    branchEn <= Z;
+                    branchEn := Z;
                 when "0010" => --BLE
-                    branchEn <= Z or (N xor V);
+                    branchEn := Z or (N xor V);
                 when "0011" => --BL
-                    branchEn <= N xor V;
+                    branchEn := N xor V;
                 when "0100" => --BLEU
-                    branchEn <= (C or Z);
+                    branchEn := (C or Z);
                 when "0101" => --BCS
-                    branchEn <= C;
+                    branchEn := C;
                 when "0110" => --BNEG
-                    branchEn <= N;
+                    branchEn := N;
                 when "0111" => --BVS
-                    branchEn <= V;
+                    branchEn := V;
                 when "1000" => --BA
-                    branchEn <= '1';
+                    branchEn := '1';
                 when "1001" => --BNE
-                    branchEn <= not Z;
+                    branchEn := not Z;
                 when "1010" => --BG
-                    branchEn <= not (Z or (N xor V));
+                    branchEn := not (Z or (N xor V));
                 when "1011" => --BGE
-                    branchEn <= not (N xor V);
+                    branchEn := not (N xor V);
                 when "1100" => --BGU
-                    branchEn <= not (C or Z);
+                    branchEn := not (C or Z);
                 when "1101" => --BCC
-                    branchEn <= not C;
+                    branchEn := not C;
                 when "1110" => --BPOS
-                    branchEn <= not N;
+                    branchEn := not N;
                 when "1111" => --BVC
-                    branchEn <= not V;
+                    branchEn := not V;
                 when others =>
-                    branchEn <= '0';
+                    branchEn := '0';
             end case;
             RFDEST <= '0';
             RFSOURCE <= "00";
@@ -169,11 +172,13 @@ process(icc, OP, OP3, cond) begin
             PCSOURCE <= "00";
             WE <= '0';
 	end case;
-	if (branchEn = '1') then
-					PCSOURCE <= "01"; 
-            else
-					PCSOURCE <= "10";
-	end if;
+	case branchEn is
+		when '1' =>
+		PCSOURCE <= "01";
+		when '0' => 
+		PCSOURCE <= "10";
+		when others => null;
+	end case;
 end process;
 
 end Behavioral;
