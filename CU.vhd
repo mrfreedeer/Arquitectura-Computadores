@@ -34,14 +34,17 @@ entity CU is Port (
 
 architecture Behavioral of CU is
 
-signal branchEn : STD_LOGIC := '0';
-signal N : STD_LOGIC := icc(3);
-signal Z : STD_LOGIC := icc(2);
-signal V : STD_LOGIC := icc(1);
-signal C : STD_LOGIC := icc(0);
+signal branchEn : STD_LOGIC;
+signal N : STD_LOGIC;
+signal Z : STD_LOGIC;
+signal V : STD_LOGIC ;
+signal C : STD_LOGIC ;
 
 begin
-
+N <= icc(3);
+Z <= icc(2);
+V <= icc(1);
+C <= icc(0);
 process(icc, OP, OP3, cond) begin
 	case OP is
 		when "10" =>
@@ -121,11 +124,6 @@ process(icc, OP, OP3, cond) begin
             wrEnMem <= '0';
             rdEnMem <= '0';
             ALUOP <= "000000";
-				if (branchEn = '1') then
-					PCSOURCE <= "01"; 
-            else
-					PCSOURCE <= "10";
-				end if;
             WE <= '0';
 		when "11" => --Load/Store
             case OP3 is
@@ -171,6 +169,11 @@ process(icc, OP, OP3, cond) begin
             PCSOURCE <= "00";
             WE <= '0';
 	end case;
+	if (branchEn = '1') then
+					PCSOURCE <= "01"; 
+            else
+					PCSOURCE <= "10";
+	end if;
 end process;
 
 end Behavioral;
