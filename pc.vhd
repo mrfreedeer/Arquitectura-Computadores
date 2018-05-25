@@ -28,7 +28,7 @@ begin
 process (clk,rst) is
 begin
 	 	if rst = '1' then
-			PCout <= (others => '0'); 
+			PCout <= X"00000000"; 
 		elsif rising_edge(clk) then 
 			PCout <= PCAddr;
 		end if;

@@ -38,7 +38,7 @@ signal N : STD_LOGIC;
 signal Z : STD_LOGIC;
 signal V : STD_LOGIC ;
 signal C : STD_LOGIC ;
-
+signal branchbait : STD_LOGIC;
 begin
 N <= icc(3);
 Z <= icc(2);
@@ -122,6 +122,13 @@ variable branchEn : std_logic;
                 when others =>
                     branchEn := '0';
             end case;
+				case branchEn is
+					when '1' =>
+					PCSOURCE <= "01";
+					when '0' => 
+					PCSOURCE <= "10";
+					when others => null;
+				end case;
             RFDEST <= '0';
             RFSOURCE <= "00";
             wrEnMem <= '0';
@@ -152,7 +159,7 @@ variable branchEn : std_logic;
                     wrEnMem <= '0';
                     rdEnMem <= '0';
                     ALUOP <= "000000";
-                    PCSOURCE <= "00";
+                    PCSOURCE <= "10";
                     WE <= '0';
             end case;
         when "01" => --Call
@@ -169,16 +176,11 @@ variable branchEn : std_logic;
             wrEnMem <= '0';
             rdEnMem <= '0';
             ALUOP <= "000000";
-            PCSOURCE <= "00";
+            PCSOURCE <= "10";
             WE <= '0';
 	end case;
-	case branchEn is
-		when '1' =>
-		PCSOURCE <= "01";
-		when '0' => 
-		PCSOURCE <= "10";
-		when others => null;
-	end case;
+
+	branchbait <= branchEn;
 end process;
 
 end Behavioral;

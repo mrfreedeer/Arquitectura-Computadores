@@ -114,13 +114,13 @@ component IntegratedPC is
     Port ( rst : in  STD_LOGIC;
            clk : in  STD_LOGIC;
 			  PCin : in STD_LOGIC_VECTOR(31 downto 0);
-			  PC32out: out STD_LOGIC_VECTOR(31 downto 0);
-           PCout : out  STD_LOGIC_VECTOR (5 downto 0));
+			  PCadderout: out STD_LOGIC_VECTOR(31 downto 0);
+           PCout : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
 component instructionMemory is
     Port ( --clk : in STD_LOGIC;
-	   address : in  STD_LOGIC_VECTOR (5 downto 0);
+	   address : in  STD_LOGIC_VECTOR (31 downto 0);
            reset : in  STD_LOGIC;
            outInstruction : out  STD_LOGIC_VECTOR (31 downto 0));
 end component;
@@ -213,19 +213,19 @@ signal disp22 : STD_LOGIC_VECTOR (31 downto 0);
 signal pcplusdisp30 : STD_LOGIC_VECTOR (31 downto 0);
 signal pcplusdisp22 : STD_LOGIC_VECTOR (31 downto 0);
 signal nPCin : STD_LOGIC_VECTOR(31 downto 0);
+signal PCadderout : STD_LOGIC_VECTOR(31 downto 0);
 signal PCout : STD_LOGIC_VECTOR(31 downto 0);
-
 begin
 
 inst_IP : IntegratedPC Port Map (
 			rst => reset,
 			clk => clk,
 			PCin => nPCin,
-			PC32out => PCout,
-			PCout => IMIN
+			PCadderout => PCadderout,
+			PCout => PCout
 			);
 inst_IM : instructionMemory Port Map(
-			address => IMIN,
+			address => PCout,
          reset => reset,
          outInstruction => IMOUT
 			);
@@ -342,13 +342,13 @@ inst_MUXDM: MUX3x1 Port Map(
 			 i  => RFSOURCE ,
 			 in0 => DWR,
 			 in1 => DATATOMEM,
-			 in2 => IMOUT,
+			 in2 => PCout,
 			 RMUX => DATATOREG);
 inst_MUX4x1 : MUX4x1 Port Map (
     i => PCSOURCE,
     in0 => pcplusdisp30,
     in1 => pcplusdisp22,
-    in2 => PCout,
+    in2 => PCadderout,
     in3 => DWR,
     RMUX => nPCin);
 

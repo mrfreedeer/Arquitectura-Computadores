@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/Users/Juan Pablo/Documents/comp-arquitecture/Tb_Processor_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/Users/utp/Desktop/mrfreedeer-comp-arquitecture-d1e3ffc62af1/Tb_Processor_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="numeric_std" />
             <top_module name="std_logic_1164" />
@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="24" />
    <wvobject fp_name="/tb_processor/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -31,10 +31,10 @@
       <obj_property name="ElementShortName">clk_period</obj_property>
       <obj_property name="ObjectShortName">clk_period</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/pcin" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pcin[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pcin[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/tb_processor/uut/inst_IP/rpc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rpc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rpc[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/crs1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">crs1[31:0]</obj_property>
@@ -90,10 +90,6 @@
       <obj_property name="ObjectShortName">rd[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_CU/branchen" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">branchen</obj_property>
-      <obj_property name="ObjectShortName">branchen</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_CU/pcsource" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pcsource[1:0]</obj_property>
       <obj_property name="ObjectShortName">pcsource[1:0]</obj_property>
@@ -113,5 +109,14 @@
    <wvobject fp_name="/tb_processor/uut/inst_CU/c" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">c</obj_property>
       <obj_property name="ObjectShortName">c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/simm13" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">simm13[12:0]</obj_property>
+      <obj_property name="ObjectShortName">simm13[12:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/imout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">imout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imout[31:0]</obj_property>
    </wvobject>
 </wave_config>

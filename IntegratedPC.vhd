@@ -18,8 +18,8 @@ entity IntegratedPC is
     Port ( rst : in  STD_LOGIC;
            clk : in  STD_LOGIC;
 			  PCin : in STD_LOGIC_VECTOR(31 downto 0);
-			  PC32out: out STD_LOGIC_VECTOR(31 downto 0);
-           PCout : out  STD_LOGIC_VECTOR (5 downto 0));
+			  PCadderout: out STD_LOGIC_VECTOR(31 downto 0);
+           PCout : out  STD_LOGIC_VECTOR (31 downto 0));
 end IntegratedPC;
 
 architecture Behavioral of IntegratedPC is
@@ -42,14 +42,12 @@ signal rpc :  std_logic_vector (31 downto 0);
 signal rnpc :  std_logic_vector (31 downto 0);
 
 begin
-PCout <= rpc(5 downto 0);
-
+PCout <= rpc;
 inst_adder: adder PORT MAP(
 				A => X"00000001",
 				B => rnpc,
 				C => radder
 				);
-PC32out <= radder;
 inst_npc: pc PORT MAP(
 				PCAddr => PCin,
 				rst => rst,
@@ -62,7 +60,7 @@ inst_pc: pc PORT MAP(
 				clk => clk,
 				PCout => rpc
 			);
-
+PCadderout <= radder;
 
 end Behavioral;
 
