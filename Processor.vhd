@@ -23,7 +23,7 @@ entity Processor is
            ALU_RESULT : out  STD_LOGIC_VECTOR (31 downto 0));
 end Processor;
 
-architecture Behavioral of Processor is
+	architecture Behavioral of Processor is
 
 component ALU is
     Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -282,7 +282,7 @@ inst_RF: RegisterFile  Port Map (
 			rs1 => RS1,
          rs2 => RS2,
          rd => RD,
-         DWR => DWR,
+         DWR => DATATOREG,
 			WE => WE, 
          reset => reset,
          CRS1 => CRS1,
@@ -340,8 +340,8 @@ inst_DM: DataMemory Port Map (
 
 inst_MUXDM: MUX3x1 Port Map(
 			 i  => RFSOURCE ,
-			 in0 => DWR,
-			 in1 => DATATOMEM,
+			 in0 => DATATOMEM,
+			 in1 => DWR,
 			 in2 => PCout,
 			 RMUX => DATATOREG);
 inst_MUX4x1 : MUX4x1 Port Map (
