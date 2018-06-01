@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="25" />
    <wvobject fp_name="/tb_processor/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -26,15 +26,16 @@
    <wvobject fp_name="/tb_processor/alu_result" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/pcout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pcout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pcout[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/clk_period" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">clk_period</obj_property>
       <obj_property name="ObjectShortName">clk_period</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/rpc" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rpc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rpc[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/crs1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">crs1[31:0]</obj_property>
@@ -71,28 +72,51 @@
       <obj_property name="ElementShortName">cwp</obj_property>
       <obj_property name="ObjectShortName">cwp</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/rs1" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rs1[5:0]</obj_property>
-      <obj_property name="ObjectShortName">rs1[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/rs2" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rs2[5:0]</obj_property>
-      <obj_property name="ObjectShortName">rs2[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/rd" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rd[5:0]</obj_property>
-      <obj_property name="ObjectShortName">rd[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_CU/pcsource" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pcsource[1:0]</obj_property>
       <obj_property name="ObjectShortName">pcsource[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/simm13" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">simm13[12:0]</obj_property>
-      <obj_property name="ObjectShortName">simm13[12:0]</obj_property>
+   <wvobject fp_name="/tb_processor/uut/rfsource" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rfsource[1:0]</obj_property>
+      <obj_property name="ObjectShortName">rfsource[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/datatoreg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">datatoreg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">datatoreg[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/dwr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dwr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dwr[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/rs1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs1[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/rs2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs2[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/rd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rd[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rd[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX2X1_6bit/rmux" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rmux[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rmux[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_CU/we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/rf[15]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[15]</obj_property>
+      <obj_property name="ObjectShortName">rf[15]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_RF/rf" type="array" db_ref_id="1">

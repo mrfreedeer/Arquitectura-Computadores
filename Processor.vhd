@@ -23,7 +23,7 @@ entity Processor is
            ALU_RESULT : out  STD_LOGIC_VECTOR (31 downto 0));
 end Processor;
 
-	architecture Behavioral of Processor is
+architecture Behavioral of Processor is
 
 component ALU is
     Port ( CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
@@ -154,6 +154,7 @@ component Windows_Manager is
            nRS1 : out  STD_LOGIC_VECTOR (5 downto 0);
            nRS2 : out STD_LOGIC_VECTOR (5 downto 0);
            nRD : out  STD_LOGIC_VECTOR (5 downto 0);
+           o7 : out  STD_LOGIC_VECTOR (5 downto 0);
 			  nCWP : out STD_LOGIC);
 end component;
 
@@ -182,6 +183,7 @@ signal RS1 : STD_LOGIC_VECTOR(5 downto 0);
 signal RS2 : STD_LOGIC_VECTOR(5 downto 0);
 signal Rd : STD_LOGIC_VECTOR(5 downto 0);
 signal nRd : STD_LOGIC_VECTOR(5 downto 0);
+signal o7 : STD_LOGIC_VECTOR(5 downto 0);
 signal DWR : STD_LOGIC_VECTOR(31 downto 0);
 signal OP : STD_LOGIC_VECTOR(1 downto 0);
 signal OP3 : STD_LOGIC_VECTOR(5 downto 0);
@@ -263,6 +265,7 @@ inst_WM : Windows_Manager Port Map(
 			nRS1 => RS1,
 			nRS2 => RS2,
 			nRD =>  nRd,
+			o7 =>  o7,
 			nCWP => nCWP);
 
 inst_CU: CU   Port Map ( 
@@ -303,7 +306,7 @@ inst_MUX2x1 : MUX2x1 Port Map (
 inst_MUX2X1_6bit : MUX2x1_6bit Port Map(
 			i => RFDEST,
 			in0 => nRd, 
-			in1 => "001111",
+			in1 => o7,
 			RMUX => Rd); 
 			
 inst_PSR_Modifier : PSR_Modifier Port Map( 
@@ -353,7 +356,7 @@ inst_MUX4x1 : MUX4x1 Port Map (
     RMUX => nPCin);
 
 					
-ALU_RESULT <= DATATOREG;
+--ALU_RESULT <= DATATOREG;
 
 end Behavioral;
 

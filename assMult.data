@@ -1,0 +1,14 @@
+mov 3, %i0
+mov 2, %i1
+or %i0, 0, %l0
+sub %i1, 1, %l1
+cmp %l1, 0 --subcc %l1, 0, %g0	--ciclo
+be return
+(nop)
+or %l0, 0, %l2
+add %l2, %i0, %l0
+or %l1, 0, %l3
+sub %l3, 1, %l1
+ba ciclo
+(nop)
+or %l0, 0, %o0					--return

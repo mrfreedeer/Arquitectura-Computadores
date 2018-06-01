@@ -13,7 +13,7 @@ addcc %o1, 288, %i1
 restore %g1, 7, %l0
 addcc %g3, 18, %l0
 addcc %o1, 30, %i1
-save %g0, 0, %l0
+save %i0, 0, %l0
 addxcc %i5, %i6, %g2 --i5 se inicializo con x"C0000000", y %i6 con X"40000000"
 subx %g2, 3, %g5
 or %g5, 0, %g1
@@ -35,7 +35,7 @@ add %l2, %l3, %l0
 ba return
 add %g0, 0, %g0 (similar nop)
 add %l1, %l2, %l0   -- else
-ba 4
+ba 3
 add %g0, 0, %g0 (similar nop)
 mov %l0, %o0        -- return
 --
