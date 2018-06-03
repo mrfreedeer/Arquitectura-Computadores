@@ -6,7 +6,7 @@
 -- Create Date:    	16:13:07 04/10/2018 
 -- Design Name: 	Tb_ALU File Design
 -- Module Name:    	Tb_ALU - Behavioral 
--- Project Name: 	Third Processor
+-- Project Name: 	Segmented Processor
 
 --
 ----------------------------------------------------------------------------------

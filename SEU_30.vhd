@@ -7,7 +7,7 @@
 -- Create Date:    	19:16:31 05/14/2018
 -- Design Name: 		SEU_30 File Design
 -- Module Name:    	SEU_30 - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 ----------------------------------------------------------------------------------
 

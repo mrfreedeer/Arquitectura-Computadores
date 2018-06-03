@@ -7,7 +7,7 @@
 -- Create Date:    	19:15:31 05/14/2018
 -- Design Name: 		DataMemory File Design
 -- Module Name:    	DataMemory - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 ----------------------------------------------------------------------------------
 

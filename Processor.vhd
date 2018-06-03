@@ -7,7 +7,7 @@
 -- Create Date:    	17:18:31 04/10/2018
 -- Design Name: 		Processor File Design
 -- Module Name:    	Processor - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 --
 
@@ -177,7 +177,47 @@ component SEU_22 is
 				exto : out STD_LOGIC_VECTOR (31 downto 0));
 end component;
 
+component IFID is
+    Port ( PCadderout : in  STD_LOGIC_VECTOR (31 downto 0);
+           PCout : in  STD_LOGIC_VECTOR (31 downto 0);
+           IMOUT : in  STD_LOGIC_VECTOR (31 downto 0);
+			  clk : in STD_LOGIC;
+			  rst : in STD_LOGIC;
+           IFIDPCadderout : out  STD_LOGIC_VECTOR (31 downto 0);
+           IFIDPCout : out  STD_LOGIC_VECTOR (31 downto 0);
+           IFIDIMOUT : out  STD_LOGIC_VECTOR (31 downto 0));
+end component;
 
+component IDEX is
+    Port ( disp22 : in  STD_LOGIC_VECTOR (31 downto 0);
+           IFIDPCout : in  STD_LOGIC_VECTOR (31 downto 0);
+           i : in  STD_LOGIC;
+           disp30 : in  STD_LOGIC_VECTOR (31 downto 0);
+           IFIDPCadderout : in  STD_LOGIC_VECTOR (31 downto 0);
+           PCSOURCE : in  STD_LOGIC_VECTOR (1 downto 0);
+           RFSOURCE : in  STD_LOGIC_VECTOR (1 downto 0);
+           WRENMEM : in  STD_LOGIC;
+           RDENMEM : in  STD_LOGIC;
+           CRD : in  STD_LOGIC_VECTOR (31 downto 0);
+           CRS1 : in  STD_LOGIC_VECTOR (31 downto 0);
+           CRS2 : in  STD_LOGIC_VECTOR (31 downto 0);
+           SIMM32 : in  STD_LOGIC_VECTOR (31 downto 0);
+			  clk : in STD_LOGIC;
+			  rst : in STD_LOGIC;
+           IDEXdisp22 : out  STD_LOGIC_VECTOR (31 downto 0);
+           IDEXPCout : out  STD_LOGIC_VECTOR (31 downto 0);
+           IDEXi : out  STD_LOGIC;
+           IDEXdisp30 : out  STD_LOGIC_VECTOR (31 downto 0);
+           IDEXPCadderout : out  STD_LOGIC_VECTOR (31 downto 0);
+           IDEXPCSOURCE : out  STD_LOGIC_VECTOR (1 downto 0);
+           IDEXRFSOURCE : out  STD_LOGIC_VECTOR (1 downto 0);
+           IDEXWRENMEM : out  STD_LOGIC;
+           IDEXRDENMEM : out  STD_LOGIC;
+           IDEXCRD : out  STD_LOGIC_VECTOR (31 downto 0);
+           IDEXCRS1 : out  STD_LOGIC_VECTOR (31 downto 0);
+           IDEXCRS2 : out  STD_LOGIC_VECTOR (31 downto 0);
+			  IDEXSIMM32 : out STD_LOGIC_VECTOR (31 downto 0));
+end component;
 
 signal RS1 : STD_LOGIC_VECTOR(5 downto 0);
 signal RS2 : STD_LOGIC_VECTOR(5 downto 0);
@@ -217,7 +257,27 @@ signal pcplusdisp22 : STD_LOGIC_VECTOR (31 downto 0);
 signal nPCin : STD_LOGIC_VECTOR(31 downto 0);
 signal PCadderout : STD_LOGIC_VECTOR(31 downto 0);
 signal PCout : STD_LOGIC_VECTOR(31 downto 0);
+
+signal IFIDPCadderout : STD_LOGIC_VECTOR(31 downto 0);
+signal IFIDPCout : STD_LOGIC_VECTOR(31 downto 0);
+signal IFIDIMOUT : STD_LOGIC_VECTOR(31 downto 0);
+
+signal IDEXdisp22 : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXPCout : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXi : STD_LOGIC;
+signal IDEXdisp30 : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXPCadderout : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXPCSOURCE : STD_LOGIC_VECTOR(1 downto 0);
+signal IDEXRFSOURCE : STD_LOGIC_VECTOR (1 downto 0);
+signal IDEXwrEnMem : STD_LOGIC;
+signal IDEXrdEnMem : STD_LOGIC;
+signal IDEXCRD : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXCRS1 : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXCRS2 : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXSIMM32 : STD_LOGIC_VECTOR(31 downto 0);
+
 begin
+
 
 inst_IP : IntegratedPC Port Map (
 			rst => reset,
@@ -226,39 +286,50 @@ inst_IP : IntegratedPC Port Map (
 			PCadderout => PCadderout,
 			PCout => PCout
 			);
+			
+			
 inst_IM : instructionMemory Port Map(
 			address => PCout,
          reset => reset,
          outInstruction => IMOUT
 			);
+inst_IFID: IFID Port Map(
+			PCadderout => PCadderout,
+         PCout => PCout,
+         IMOUT => IMOUT,
+			clk => clk,
+			rst => reset,
+         IFIDPCadderout => IFIDPCadderout,
+         IFIDPCout => IFIDPCout,
+         IFIDIMOUT => IFIDIMOUT);
 
-i <= IMOUT(13);
-SIMM13 <= IMOUT(12 downto 0);
-OP <= IMOUT(31 downto 30);
-OP3 <= IMOUT(24 downto 19);
+i <= IFIDIMOUT(13);
+SIMM13 <= IFIDIMOUT(12 downto 0);
+OP <= IFIDIMOUT(31 downto 30);
+OP3 <= IFIDIMOUT(24 downto 19);
 
 inst_SEU_30 : SEU_30 Port Map(
-			disp30 => IMOUT(29 downto 0),
+			disp30 => IFIDIMOUT(29 downto 0),
 			exto => disp30);
 			
 inst_SEU_22 : SEU_22 Port Map ( 
-			disp22 => IMOUT(21 downto 0),
+			disp22 => IFIDIMOUT(21 downto 0),
 			exto => disp22);
 			
 inst_adder_1 : adder Port Map ( 
-			A => PCout,
-         B => disp30,
+			A => IDEXPCout,
+         B => IDEXdisp30,
          C => pcplusdisp30);
 
 inst_adder_2 : adder Port Map ( 
-			A => PCout,
-         B => disp22,
+			A => IDEXPCout,
+         B => IDEXdisp22 ,
          C => pcplusdisp22);
 			
 inst_WM : Windows_Manager Port Map( 
-			RS1 => IMOUT(18 downto 14),
-			RS2 => IMOUT(4 downto 0),
-			RD => IMOUT(29 downto 25),
+			RS1 => IFIDIMOUT(18 downto 14),
+			RS2 => IFIDIMOUT(4 downto 0),
+			RD => IFIDIMOUT(29 downto 25),
 			OP => OP,
 			OP3 => OP3,
 			CWP => CWP,
@@ -272,7 +343,7 @@ inst_CU: CU   Port Map (
 			icc => icc,
 			OP => OP,
         	OP3 => OP3,
-			cond => IMOUT(28 downto 25),
+			cond => IFIDIMOUT(28 downto 25),
 			RFDEST => RFDEST,
 			RFSOURCE => RFSOURCE,
 			wrEnMem => wrEnMem,
@@ -297,10 +368,41 @@ inst_SEU_13 : SEU_13 Port Map(
 			imm13 => SIMM13,
 			exto => SIMM32);
 			
+inst_IDEX : IDEX Port  Map(
+			  disp22 => disp22,
+           IFIDPCout => IFIDPCout,
+           i => i,
+           disp30 => disp30,
+           IFIDPCadderout => IFIDPCadderout,
+           PCSOURCE => PCSOURCE,
+           RFSOURCE => RFSOURCE,
+				wrEnMem => wrEnMem,
+           rdEnMem => rdEnMem,
+           CRD => CRD,
+           CRS1 => CRS1,
+           CRS2 => CRS2,
+           SIMM32 => SIMM32,
+			  clk => clk,
+			  rst => reset,
+           IDEXdisp22 =>  IDEXdisp22 ,
+           IDEXPCout => IDEXPCout,
+           IDEXi => IDEXi,
+           IDEXdisp30 => IDEXdisp30,
+           IDEXPCadderout => IDEXPCadderout,
+           IDEXPCSOURCE => IDEXPCSOURCE,
+           IDEXRFSOURCE => IDEXRFSOURCE,
+           IDEXwrEnMem => IDEXwrEnMem,
+           IDEXrdEnMem => IDEXrdEnMem,
+           IDEXCRD => IDEXCRD,
+           IDEXCRS1 => IDEXCRS1,
+           IDEXCRS2 => IDEXCRS2,
+			  IDEXSIMM32 => IDEXSIMM32);
+			
+			
 inst_MUX2x1 : MUX2x1 Port Map ( 
-			i => i,
-			in0 => CRS2,
-        	in1 => SIMM32,
+			i => IDEXi,
+			in0 => IDEXCRS2,
+        	in1 => IDEXSIMM32,
          RMUX => RMUX);
 			
 inst_MUX2X1_6bit : MUX2x1_6bit Port Map(
@@ -310,7 +412,7 @@ inst_MUX2X1_6bit : MUX2x1_6bit Port Map(
 			RMUX => Rd); 
 			
 inst_PSR_Modifier : PSR_Modifier Port Map( 
-			CRS1 => CRS1,
+			CRS1 => IDEXCRS1,
 			RMUX => RMUX, 
 			ALUOP => ALUOP, 
 			DWR => DWR,
@@ -328,35 +430,35 @@ inst_PSR:  PSR Port Map(
          CWP => CWP);
 					
 inst_ALU: ALU Port Map(
-			CRS1 => CRS1,
+			CRS1 => IDEXCRS1,
          RMUX => RMUX,
 			ALUOP => ALUOP,
 			C => Carry,
          DWR => DWR);
 inst_DM: DataMemory Port Map (
-		 dataIn => CRD,
+		 dataIn => IDEXCRD,
 		 address => DWR,
 		 reset  => reset, 
-		 wrEnMem => wrEnMem,
-		 rdEnMem => rdEnMem,
+		 wrEnMem => IDEXwrEnMem,
+		 rdEnMem => IDEXrdEnMem,
 		 dataOut => DATATOMEM);
 
 inst_MUXDM: MUX3x1 Port Map(
-			 i  => RFSOURCE ,
+			 i  => IDEXRFSOURCE ,
 			 in0 => DATATOMEM,
 			 in1 => DWR,
-			 in2 => PCout,
+			 in2 => IDEXPCout,
 			 RMUX => DATATOREG);
 inst_MUX4x1 : MUX4x1 Port Map (
-    i => PCSOURCE,
+    i => IDEXPCSOURCE,
     in0 => pcplusdisp30,
     in1 => pcplusdisp22,
-    in2 => PCadderout,
+    in2 => IDEXPCadderout,
     in3 => DWR,
     RMUX => nPCin);
 
 					
---ALU_RESULT <= DATATOREG;
+ALU_RESULT <= DATATOREG;
 
 end Behavioral;
 

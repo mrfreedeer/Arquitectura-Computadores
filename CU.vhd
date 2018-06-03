@@ -7,7 +7,7 @@
 -- Create Date:    	19:11:43 05/14/2018
 -- Design Name: 		CU File Design
 -- Module Name:    	CU - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 ----------------------------------------------------------------------------------
 

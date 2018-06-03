@@ -7,7 +7,7 @@
 -- Create Date:    	19:09:31 05/14/2018
 -- Design Name: 		MUX2x1 File Design
 -- Module Name:    	MUX2x1 - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 ----------------------------------------------------------------------------------
 

@@ -5,7 +5,7 @@
 -- Create Date: 		17:06:01 04/10/2018
 -- Design Name: 		ALU File Design
 -- Module Name:    	ALU - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 ----------------------------------------------------------------------------------
 

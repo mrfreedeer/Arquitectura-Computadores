@@ -6,7 +6,7 @@
 -- Create Date:    	16:13:07 04/10/2018 
 -- Design Name: 		IntegratedPC File Design
 -- Module Name:      IntegratedPC - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 --
 ----------------------------------------------------------------------------------
@@ -42,25 +42,33 @@ signal rpc :  std_logic_vector (31 downto 0);
 signal rnpc :  std_logic_vector (31 downto 0);
 
 begin
-PCout <= rpc;
-inst_adder: adder PORT MAP(
-				A => X"00000001",
-				B => rnpc,
-				C => radder
+	inst_adder: adder PORT MAP(
+					A => X"00000001",
+					B => rnpc,
+					C => radder
+					);
+	inst_npc: pc PORT MAP(
+					PCAddr => PCin,
+					rst => rst,
+					clk => clk,
+					PCout => rnpc
 				);
-inst_npc: pc PORT MAP(
-				PCAddr => PCin,
-				rst => rst,
-				clk => clk,
-				PCout => rnpc
-			);
-inst_pc: pc PORT MAP(
-				PCAddr => rnpc,
-				rst => rst,
-				clk => clk,
-				PCout => rpc
-			);
-PCadderout <= radder;
+	inst_pc: pc PORT MAP(
+					PCAddr => rnpc,
+					rst => rst,
+					clk => clk,
+					PCout => rpc
+				);
+process(clk)
+begin
+if (rst = '1') then 
+	PCadderout <= (others=>'0');
+else 
+	PCout <= rpc;
+
+	PCadderout <= radder;
+end if;
+end process;
 
 end Behavioral;
 

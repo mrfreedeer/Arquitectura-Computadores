@@ -6,7 +6,7 @@
 -- Create Date:    	10:26:38 10/28/2012  
 -- Design Name: 		IntegratedPC File Design
 -- Module Name:      IntegratedPC - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 --
 ----------------------------------------------------------------------------------

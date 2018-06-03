@@ -7,7 +7,7 @@
 -- Create Date:    	19:13:31 05/14/2018
 -- Design Name: 		MUX2x1_6bit File Design
 -- Module Name:    	MUX2x1_6bit - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 ----------------------------------------------------------------------------------
 

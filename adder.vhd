@@ -4,9 +4,9 @@
 --	 	John Sebastián Luján Figueroa
 -- 
 -- Create Date:    	16:13:07 04/10/2018 
--- Design Name: 	adder File Design
+-- Design Name: 		adder File Design
 -- Module Name:    	adder - Behavioral 
--- Project Name: 	Third Processor
+-- Project Name: 	Segmented Processor
 ----------------------------------------------------------------------------------
 
 

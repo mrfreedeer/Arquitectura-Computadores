@@ -7,7 +7,7 @@
 -- Create Date:    	20:21:28 05/03/2018
 -- Design Name: 	Tb_PSR File Design
 -- Module Name:    	Tb_PSR - Behavioral 
--- Project Name: 	Third Processor
+-- Project Name: 	Segmented Processor
 
 --
 ----------------------------------------------------------------------------------

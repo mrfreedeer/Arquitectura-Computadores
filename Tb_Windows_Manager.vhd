@@ -7,7 +7,7 @@
 -- Create Date:    	15:58:29 04/28/2018
 -- Design Name: 		Windows Manager Testbench File Design
 -- Module Name:    	Tb_Windows_Manager - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 --
 

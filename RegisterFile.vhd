@@ -6,7 +6,7 @@
 -- Create Date:    	18:40:07 05/14/2018 
 -- Design Name: 		Register File Design
 -- Module Name:    	RegisterFile - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 ----------------------------------------------------------------------------------
 
 library IEEE;

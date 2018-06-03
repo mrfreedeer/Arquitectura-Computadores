@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Juan Pablo/Documents/comp-arquitecture/Tb_Processor_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_processor" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/tb_processor/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/alu_result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_IP/pcin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pcin[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pcin[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_IP/pcadderout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pcadderout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pcadderout[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_IP/pcout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pcout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pcout[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_IP/radder" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">radder[31:0]</obj_property>
+      <obj_property name="ObjectShortName">radder[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_IP/rpc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rpc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rpc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_IP/rnpc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rnpc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rnpc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/in0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/in1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/in2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/in3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/rmux" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rmux[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rmux[31:0]</obj_property>
+   </wvobject>
+</wave_config>

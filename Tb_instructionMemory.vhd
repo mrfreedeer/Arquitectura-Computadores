@@ -6,7 +6,7 @@
 -- Create Date:    	16:24:47 04/12/2018
 -- Design Name: 		Tb_IntegratedPC File Design
 -- Module Name:    	Tb_IntegratedPC - Behavioral 
--- Project Name: 		Third Processor
+-- Project Name: 		Segmented Processor
 
 --
 ----------------------------------------------------------------------------------

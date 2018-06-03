@@ -6,7 +6,7 @@
 -- Create Date:    	16:13:07 04/10/2018 
 -- Design Name: 	Tb_MUX2x1 File Design
 -- Module Name:    	Tb_MUX2x1 - Behavioral 
--- Project Name: 	Third Processor
+-- Project Name: 	Segmented Processor
 ---------------------------------------------------------------------------------
 
 

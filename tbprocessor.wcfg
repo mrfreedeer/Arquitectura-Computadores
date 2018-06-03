@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="25" />
+   <WVObjectSize size="27" />
    <wvobject fp_name="/tb_processor/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -28,9 +28,19 @@
       <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/pcout" type="array" db_ref_id="1">
+   <wvobject fp_name="/tb_processor/uut/inst_IP/pcout" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pcout[31:0]</obj_property>
       <obj_property name="ObjectShortName">pcout[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_IFID/ifidpcout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ifidpcout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ifidpcout[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/idexpcout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">idexpcout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">idexpcout[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/clk_period" type="other" db_ref_id="1">
