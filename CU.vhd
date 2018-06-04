@@ -32,7 +32,7 @@ entity CU is Port (
     WE : out  STD_LOGIC);
 	 end CU;
 
-architecture Behavioral of CU is
+	architecture Behavioral of CU is
 
 signal N : STD_LOGIC;
 signal Z : STD_LOGIC;
