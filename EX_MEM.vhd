@@ -53,12 +53,12 @@ begin
 			EX_MEMpcplusdisp22 <= (others =>'0');
 			EX_MEMPCadderout <= (others =>'0');
 			EX_MEMRFSOURCE <= (others =>'0');
-			EX_MEMwrEnMem <= (others =>'0');
-			EX_MEMrdEnMem <= (others => '0');
+			EX_MEMwrEnMem <= '0';
+			EX_MEMrdEnMem <= '0';
 			EX_MEMALUOP <= (others => '0');
 			EX_MEMPCSOURCE <= (others => '0');
-			EX_EX_MEMCRD <= (others => '0');
-			EX_EX_MEMDWR  <= (others => '0');
+			EX_MEMCRD <= (others => '0');
+			EX_MEMDWR  <= (others => '0');
 			EX_MEMPCout  <= (others => '0');
 		elsif rising_edge(clk) then 
 			EX_MEMpcplusdisp30 <= pcplusdisp30;
@@ -69,8 +69,8 @@ begin
 			EX_MEMrdEnMem <= IDEXrdEnMem;
 			EX_MEMALUOP <= IDEXALUOP;
 			EX_MEMPCSOURCE <= IDEXPCSOURCE;
-			EX_EX_MEMCRD <= IDEXCRD;
-			EX_EX_MEMDWR  <= DWR;
+			EX_MEMCRD <= IDEXCRD;
+			EX_MEMDWR  <= DWR;
 			EX_MEMPCout  <= IDEXPCout;
 		end if;
 

@@ -30,7 +30,7 @@ ARCHITECTURE behavior OF Tb_Processor IS
     PORT(
          reset : IN  std_logic;
          clk : IN  std_logic;
-         ALU_RESULT : OUT  std_logic_vector(31 downto 0)
+         RESULT : OUT  std_logic_vector(31 downto 0)
         );
     END COMPONENT;
     
@@ -40,7 +40,7 @@ ARCHITECTURE behavior OF Tb_Processor IS
    signal clk : std_logic := '0';
 
  	--Outputs
-   signal ALU_RESULT : std_logic_vector(31 downto 0);
+   signal RESULT : std_logic_vector(31 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 40 ns;
@@ -51,7 +51,7 @@ BEGIN
    uut: Processor PORT MAP (
           reset => reset,
           clk => clk,
-          ALU_RESULT => ALU_RESULT
+          RESULT => RESULT
         );
 
    -- Clock process definitions

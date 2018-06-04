@@ -324,10 +324,12 @@ signal IDEXCRD : STD_LOGIC_VECTOR(31 downto 0);
 signal IDEXCRS1 : STD_LOGIC_VECTOR(31 downto 0);
 signal IDEXCRS2 : STD_LOGIC_VECTOR(31 downto 0);
 signal IDEXSIMM32 : STD_LOGIC_VECTOR(31 downto 0);
+signal IDEXALUOP : STD_LOGIC_VECTOR(5 downto 0);
 
 signal EX_MEMpcplusdisp30 :  STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMpcplusdisp22 :  STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMPCadder :   STD_LOGIC_VECTOR (31 downto 0);
+signal EX_MEMPCadderout: STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMRFSOURCE :   STD_LOGIC_VECTOR (1 downto 0);
 signal EX_MEMwrEnMem :   STD_LOGIC;
 signal EX_MEMrdEnMem :   STD_LOGIC;
@@ -336,12 +338,14 @@ signal EX_MEMPCSOURCE :   STD_LOGIC_VECTOR (1 downto 0);
 signal EX_MEMCRD :   STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMDWR :   STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMPC :   STD_LOGIC_VECTOR (31 downto 0);
+signal EX_MEMPCout :   STD_LOGIC_VECTOR (31 downto 0);
+signal EX_MEMIDEXPCadderout :   STD_LOGIC_VECTOR (31 downto 0);
 
 signal MEM_WBRFSOURCE :   STD_LOGIC_VECTOR (1 downto 0);
 signal MEM_WBDATATOMEM :   STD_LOGIC_VECTOR (31 downto 0);
 signal MEM_WBDWR :  STD_LOGIC_VECTOR (31 downto 0);
 signal MEM_WBPC :  STD_LOGIC_VECTOR (31 downto 0);
-
+signal MEM_WBPCout :  STD_LOGIC_VECTOR (31 downto 0);
 begin
 
 

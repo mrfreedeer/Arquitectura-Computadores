@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="12" />
    <wvobject fp_name="/tb_processor/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -23,41 +23,25 @@
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/alu_result" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_processor/clk_period" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">clk_period</obj_property>
       <obj_property name="ObjectShortName">clk_period</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/pcin" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pcin[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pcin[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/pcadderout" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pcadderout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pcadderout[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/pcout" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pcout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pcout[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/radder" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">radder[31:0]</obj_property>
-      <obj_property name="ObjectShortName">radder[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/rpc" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rpc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rpc[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IP/rnpc" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rnpc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rnpc[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/i" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">i[1:0]</obj_property>
       <obj_property name="ObjectShortName">i[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_EX_MEM/ex_mempcsource" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_mempcsource[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_mempcsource[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_EX_MEM/ex_mempcout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_mempcout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_mempcout[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_EX_MEM/ex_mempcadderout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_mempcadderout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_mempcadderout[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_MUX4x1/in0" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">in0[31:0]</obj_property>
