@@ -2,7 +2,7 @@ mov 3, %i0
 nop
 nop
 nop
-mov 2, %i1
+mov 4, %i1
 nop
 nop
 nop
@@ -24,7 +24,7 @@ or %i1, 0, %l1
 nop
 nop
 nop
-cmp %l1, 0 --subcc %l1, 0, %g0	--ciclo
+cmp %l1, 1 --subcc %l1, 1, %g0	--ciclo
 nop
 nop
 nop

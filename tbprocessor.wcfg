@@ -14,7 +14,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="27" />
+   <WVObjectSize size="21" />
    <wvobject fp_name="/tb_processor/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -23,82 +23,27 @@
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/alu_result" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_IP/pcout" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">pcout[31:0]</obj_property>
       <obj_property name="ObjectShortName">pcout[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_IFID/ifidpcout" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ifidpcout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ifidpcout[31:0]</obj_property>
+   <wvobject fp_name="/tb_processor/result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/idexpcout" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">idexpcout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">idexpcout[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/clk_period" type="other" db_ref_id="1">
-      <obj_property name="ElementShortName">clk_period</obj_property>
-      <obj_property name="ObjectShortName">clk_period</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/crs1" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">crs1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">crs1[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/rmux" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rmux[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rmux[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/aluop" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">aluop[5:0]</obj_property>
-      <obj_property name="ObjectShortName">aluop[5:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/op" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">op[1:0]</obj_property>
       <obj_property name="ObjectShortName">op[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/op3" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">op3[5:0]</obj_property>
-      <obj_property name="ObjectShortName">op3[5:0]</obj_property>
+   <wvobject fp_name="/tb_processor/uut/inst_CU/aluop" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">aluop[5:0]</obj_property>
+      <obj_property name="ObjectShortName">aluop[5:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/dwr" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">dwr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dwr[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/icc" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">icc[3:0]</obj_property>
-      <obj_property name="ObjectShortName">icc[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/cwp" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">cwp</obj_property>
-      <obj_property name="ObjectShortName">cwp</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_CU/pcsource" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pcsource[1:0]</obj_property>
-      <obj_property name="ObjectShortName">pcsource[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/rfsource" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rfsource[1:0]</obj_property>
-      <obj_property name="ObjectShortName">rfsource[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/datatoreg" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">datatoreg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">datatoreg[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_RF/dwr" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">dwr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dwr[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/tb_processor/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_RF/rs1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rs1[5:0]</obj_property>
@@ -112,25 +57,249 @@
       <obj_property name="ElementShortName">rd[5:0]</obj_property>
       <obj_property name="ObjectShortName">rd[5:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_MUX2X1_6bit/rmux" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rmux[5:0]</obj_property>
-      <obj_property name="ObjectShortName">rmux[5:0]</obj_property>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/crs1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">crs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">crs1[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_CU/we" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">we</obj_property>
-      <obj_property name="ObjectShortName">we</obj_property>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/crs2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">crs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">crs2[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_processor/uut/inst_RF/we" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">we</obj_property>
-      <obj_property name="ObjectShortName">we</obj_property>
+   <wvobject fp_name="/tb_processor/uut/inst_RF/crd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">crd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">crd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_MUX2x1/rmux" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rmux[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rmux[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_PSR/cwp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cwp</obj_property>
+      <obj_property name="ObjectShortName">cwp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_CU/cond" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cond[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cond[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/inst_PSR/icco" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">icco[3:0]</obj_property>
+      <obj_property name="ObjectShortName">icco[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/pcsource" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pcsource[1:0]</obj_property>
+      <obj_property name="ObjectShortName">pcsource[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_processor/uut/dwr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dwr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dwr[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_RF/rf[15]" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">[15]</obj_property>
       <obj_property name="ObjectShortName">rf[15]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_processor/uut/inst_RF/rf" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rf[0:39]</obj_property>
       <obj_property name="ObjectShortName">rf[0:39]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">rf[0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">rf[1]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">rf[2]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">rf[3]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">rf[4]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">rf[5]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">rf[6]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">rf[7]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">rf[8]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">rf[9]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">rf[10]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">rf[11]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">rf[12]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">rf[13]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">rf[14]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">rf[15]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">rf[16]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">rf[17]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">rf[18]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">rf[19]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">rf[20]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">rf[21]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">rf[22]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">rf[23]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">rf[24]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">rf[25]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">rf[26]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">rf[27]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">rf[28]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29]</obj_property>
+         <obj_property name="ObjectShortName">rf[29]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30]</obj_property>
+         <obj_property name="ObjectShortName">rf[30]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31]</obj_property>
+         <obj_property name="ObjectShortName">rf[31]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[32]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[32]</obj_property>
+         <obj_property name="ObjectShortName">rf[32]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[33]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[33]</obj_property>
+         <obj_property name="ObjectShortName">rf[33]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[34]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[34]</obj_property>
+         <obj_property name="ObjectShortName">rf[34]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[35]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[35]</obj_property>
+         <obj_property name="ObjectShortName">rf[35]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[36]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[36]</obj_property>
+         <obj_property name="ObjectShortName">rf[36]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[37]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[37]</obj_property>
+         <obj_property name="ObjectShortName">rf[37]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[38]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[38]</obj_property>
+         <obj_property name="ObjectShortName">rf[38]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_processor/uut/inst_RF/rf[39]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[39]</obj_property>
+         <obj_property name="ObjectShortName">rf[39]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>

@@ -43,46 +43,49 @@ begin
 				nCWP_aux := CWP;
 			end if;
 			nCWP <= nCWP_aux;
-		end if;
-		
-		
-		if ( RS1>= "11000" and RS1 <= "11111") then
-			nRS1 <=conv_std_logic_vector(conv_integer(RS1) - conv_integer(CWP)* 16, 6) ;
-		elsif (RS1>= "10000" and RS1 <= "10111") then
-			nRS1 <= conv_std_logic_vector(conv_integer(RS1) + conv_integer(CWP) * 16,6) ;
-		elsif ( RS1>= "01000" and RS1 <= "01111") then
-			nRS1 <= conv_std_logic_vector(conv_integer(RS1) + conv_integer(CWP) * 16,6) ;
 		else 
-			nRS1(4 downto 0) <=  RS1;
-			nRS1 (5) <= '0';
+		nCWP <= CWP;
 		end if;
 		
-		if ( RS2>= "11000" and RS2 <= "11111") then
-			nRS2 <=conv_std_logic_vector(conv_integer(RS2) - conv_integer(CWP)* 16, 6) ;
-		elsif (RS2>= "10000" and RS2 <= "10111") then
-			nRS2 <= conv_std_logic_vector(conv_integer(RS2) + conv_integer(CWP) * 16,6) ;
-		elsif ( RS2>= "01000" and RS2 <= "01111") then
-			nRS2 <= conv_std_logic_vector(conv_integer(RS2) + conv_integer(CWP) * 16,6) ;
-		else 
-			nRS2(4 downto 0) <=  RS2;
-			nRS2 (5) <= '0';
-		end if;
-		
-		if ( RD>= "11000" and RD <= "11111") then
-			nRD <=conv_std_logic_vector(conv_integer(RD) - conv_integer(nCWP_aux)* 16, 6) ;
-		elsif (RD>= "10000" and RD <= "10111") then
-			nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer(nCWP_aux) * 16,6) ;
-		elsif ( RD>= "01000" and RD <= "01111") then
-			nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer(nCWP_aux) * 16,6) ;
-		else 
-			nRD(4 downto 0) <=  RD;
-			nRD (5) <= '0';
-		end if;
-		
-		if ( nCWP_aux = '0') then
-			o7 <= "001111";
-		else
-			o7 <= "011111";
+		if((OP /= 00) and (OP3 /= 100000)) then 
+			if ( RS1>= "11000" and RS1 <= "11111") then
+				nRS1 <=conv_std_logic_vector(conv_integer(RS1) - conv_integer(CWP)* 16, 6) ;
+			elsif (RS1>= "10000" and RS1 <= "10111") then
+				nRS1 <= conv_std_logic_vector(conv_integer(RS1) + conv_integer(CWP) * 16,6) ;
+			elsif ( RS1>= "01000" and RS1 <= "01111") then
+				nRS1 <= conv_std_logic_vector(conv_integer(RS1) + conv_integer(CWP) * 16,6) ;
+			else 
+				nRS1(4 downto 0) <=  RS1;
+				nRS1 (5) <= '0';
+			end if;
+			
+			if ( RS2>= "11000" and RS2 <= "11111") then
+				nRS2 <=conv_std_logic_vector(conv_integer(RS2) - conv_integer(CWP)* 16, 6) ;
+			elsif (RS2>= "10000" and RS2 <= "10111") then
+				nRS2 <= conv_std_logic_vector(conv_integer(RS2) + conv_integer(CWP) * 16,6) ;
+			elsif ( RS2>= "01000" and RS2 <= "01111") then
+				nRS2 <= conv_std_logic_vector(conv_integer(RS2) + conv_integer(CWP) * 16,6) ;
+			else 
+				nRS2(4 downto 0) <=  RS2;
+				nRS2 (5) <= '0';
+			end if;
+			
+			if ( RD>= "11000" and RD <= "11111") then
+				nRD <=conv_std_logic_vector(conv_integer(RD) - conv_integer(nCWP_aux)* 16, 6) ;
+			elsif (RD>= "10000" and RD <= "10111") then
+				nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer(nCWP_aux) * 16,6) ;
+			elsif ( RD>= "01000" and RD <= "01111") then
+				nRD <= conv_std_logic_vector(conv_integer(RD) + conv_integer(nCWP_aux) * 16,6) ;
+			else 
+				nRD(4 downto 0) <=  RD;
+				nRD (5) <= '0';
+			end if;
+			
+			if ( nCWP_aux = '0') then
+				o7 <= "001111";
+			else
+				o7 <= "011111";
+			end if;
 		end if;
 
 	end process;

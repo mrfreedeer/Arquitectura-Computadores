@@ -328,7 +328,6 @@ signal IDEXALUOP : STD_LOGIC_VECTOR(5 downto 0);
 
 signal EX_MEMpcplusdisp30 :  STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMpcplusdisp22 :  STD_LOGIC_VECTOR (31 downto 0);
-signal EX_MEMPCadder :   STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMPCadderout: STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMRFSOURCE :   STD_LOGIC_VECTOR (1 downto 0);
 signal EX_MEMwrEnMem :   STD_LOGIC;
@@ -337,14 +336,11 @@ signal EX_MEMALUOP :  STD_LOGIC_VECTOR(5 downto 0);
 signal EX_MEMPCSOURCE :   STD_LOGIC_VECTOR (1 downto 0);
 signal EX_MEMCRD :   STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMDWR :   STD_LOGIC_VECTOR (31 downto 0);
-signal EX_MEMPC :   STD_LOGIC_VECTOR (31 downto 0);
 signal EX_MEMPCout :   STD_LOGIC_VECTOR (31 downto 0);
-signal EX_MEMIDEXPCadderout :   STD_LOGIC_VECTOR (31 downto 0);
 
 signal MEM_WBRFSOURCE :   STD_LOGIC_VECTOR (1 downto 0);
 signal MEM_WBDATATOMEM :   STD_LOGIC_VECTOR (31 downto 0);
 signal MEM_WBDWR :  STD_LOGIC_VECTOR (31 downto 0);
-signal MEM_WBPC :  STD_LOGIC_VECTOR (31 downto 0);
 signal MEM_WBPCout :  STD_LOGIC_VECTOR (31 downto 0);
 begin
 
@@ -551,7 +547,7 @@ inst_MUX4x1 : MUX4x1 Port Map (
     i => EX_MEMPCSOURCE,
     in0 => EX_MEMpcplusdisp30,
     in1 => EX_MEMpcplusdisp22,
-    in2 => EX_MEMIDEXPCadderout,
+    in2 => EX_MEMPCadderout,
     in3 => EX_MEMDWR,
     RMUX => nPCin);
 
