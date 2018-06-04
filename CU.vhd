@@ -85,56 +85,62 @@ variable branchEn : std_logic;
 				when others =>
 					ALUOP <= OP3;
 			end case;
-        when "00" => --Branch
-            case cond is
-                when "0000" => --BN
-                    branchEn := '0';
-                when "0001" => --BE
-                    branchEn := Z;
-                when "0010" => --BLE
-                    branchEn := Z or (N xor V);
-                when "0011" => --BL
-                    branchEn := N xor V;
-                when "0100" => --BLEU
-                    branchEn := (C or Z);
-                when "0101" => --BCS
-                    branchEn := C;
-                when "0110" => --BNEG
-                    branchEn := N;
-                when "0111" => --BVS
-                    branchEn := V;
-                when "1000" => --BA
-                    branchEn := '1';
-                when "1001" => --BNE
-                    branchEn := not Z;
-                when "1010" => --BG
-                    branchEn := not (Z or (N xor V));
-                when "1011" => --BGE
-                    branchEn := not (N xor V);
-                when "1100" => --BGU
-                    branchEn := not (C or Z);
-                when "1101" => --BCC
-                    branchEn := not C;
-                when "1110" => --BPOS
-                    branchEn := not N;
-                when "1111" => --BVC
-                    branchEn := not V;
-                when others =>
-                    branchEn := '0';
-            end case;
-				case branchEn is
-					when '1' =>
-					PCSOURCE <= "01";
-					when '0' => 
+        when "00" =>
+			case OP3 is
+				when "100000" =>	--NOP
 					PCSOURCE <= "10";
-					when others => null;
-				end case;
-            RFDEST <= '0';
-            RFSOURCE <= "00";
-            wrEnMem <= '0';
-            rdEnMem <= '0';
-            ALUOP <= "000000";
-            WE <= '0';
+					ALUOP <= "000010";
+				when others =>		--Branch
+					case cond is
+						when "0000" => --BN
+							branchEn := '0';
+						when "0001" => --BE
+							branchEn := Z;
+						when "0010" => --BLE
+							branchEn := Z or (N xor V);
+						when "0011" => --BL
+							branchEn := N xor V;
+						when "0100" => --BLEU
+							branchEn := (C or Z);
+						when "0101" => --BCS
+							branchEn := C;
+						when "0110" => --BNEG
+							branchEn := N;
+						when "0111" => --BVS
+							branchEn := V;
+						when "1000" => --BA
+							branchEn := '1';
+						when "1001" => --BNE
+							branchEn := not Z;
+						when "1010" => --BG
+							branchEn := not (Z or (N xor V));
+						when "1011" => --BGE
+							branchEn := not (N xor V);
+						when "1100" => --BGU
+							branchEn := not (C or Z);
+						when "1101" => --BCC
+							branchEn := not C;
+						when "1110" => --BPOS
+							branchEn := not N;
+						when "1111" => --BVC
+							branchEn := not V;
+						when others =>
+							branchEn := '0';
+					end case;
+					case branchEn is
+						when '1' =>
+						PCSOURCE <= "01";
+						when '0' => 
+						PCSOURCE <= "10";
+						when others => null;
+					end case;
+					RFDEST <= '0';
+					RFSOURCE <= "00";
+					wrEnMem <= '0';
+					rdEnMem <= '0';
+					ALUOP <= "000000";
+					WE <= '0';
+			end case;
 		when "11" => --Load/Store
             case OP3 is
                 when "000000" => --LD

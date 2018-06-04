@@ -26,7 +26,7 @@ end instructionMemory;
 
 architecture arqInstructionMemory of instructionMemory is
 
-	type rom_type is array (0 to 63) of std_logic_vector (31 downto 0);
+	type rom_type is array (0 to 127) of std_logic_vector (31 downto 0);
 		
 	impure function InitRomFromFile (RomFileName : in string) return rom_type is
 		FILE RomFile : text open read_mode is RomFileName;
@@ -52,7 +52,7 @@ begin
 			if(reset = '1')then
 				outInstruction <= (others=>'0');
 			else
-				outInstruction <= instructions(conv_integer(address(5 downto 0)));
+				outInstruction <= instructions(conv_integer(address(6 downto 0)));
 			end if;
 		--end if;
 	end process;

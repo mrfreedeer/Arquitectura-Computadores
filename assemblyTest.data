@@ -1,60 +1,66 @@
-mov 8, %g1
-add %g1, 21, %g2
-and %g1, %g2, %g3
-xor %g1, %g2, %g4
-sub %g2, 3, %g5
-andn %g2,%g5,%g6
-orn %g2, 5, %g7
-xnor %g5, 9, %l0
-orncc %l0 ,0, %l1
-addcc %g0, 0, %g0
-addcc %i7, 1, %g0 --i7 se inicializo con x"7FFFFFFF"
-addcc %o1, 288, %i1
-restore %g1, 7, %l0
-addcc %g3, 18, %l0
-addcc %o1, 30, %i1
-save %i0, 0, %l0
-addxcc %i5, %i6, %g2 --i5 se inicializo con x"C0000000", y %i6 con X"40000000"
-subx %g2, 3, %g5
-or %g5, 0, %g1
-cmp %g5, %g2 --subcc %g5, %g2, %g0
-BLE 4
-add %g1, 21, %g2
-addcc %g0, 0, %g0
-mov 8, %g1
-add %g0, 0, %g0 (similar nop)
-mov 0, %l0
-mov 45, %l1
-mov 20, %l2
-mov 4, %l3
-cmp %l3, %l2
-ble else
-add %g0, 0, %g0 (similar nop)
-mov 4 %l3
-add %l2, %l3, %l0
-ba return
-add %g0, 0, %g0 (similar nop)
-add %l1, %l2, %l0   -- else
-ba 3
-add %g0, 0, %g0 (similar nop)
-mov %l0, %o0        -- return
---
-mov 5, %i0
-call suma
-mov 10, %i1
+mov 3, %i0
+nop
+nop
+nop
+mov 2, %i1
+nop
+nop
+nop
+call multiplicacion
+nop
+nop
+nop
+nop
 ba fin
-(nop)
-jmpl %o7, 2, %g0    --suma
-add %i0, %i1, %o0
-(nop)               --fin
---
-mov 0, %l0
-mov 4, %l1
-st %l1, [%l0, 0]
-mov 7, %l1
-st %l1, [%l0, 1]
-mov 9, %l1
-st %l1, [%l0, 2]
-ld [%l0, 1], %l1
-ld [%l0, 2], %l2
-add %l1, %l2, %l3
+nop
+nop
+nop
+nop
+mov 0, %l0					--multiplicacion
+nop
+nop
+nop
+or %i1, 0, %l1
+nop
+nop
+nop
+cmp %l1, 0 --subcc %l1, 0, %g0	--ciclo
+nop
+nop
+nop
+be 0 return
+nop
+nop
+nop
+nop
+or %l0, 0, %l2
+nop
+nop
+nop
+add %l2, %i0, %l0
+nop
+nop
+nop
+or %l1, 0, %l3
+nop
+nop
+nop
+sub %l3, 1, %l1
+nop
+nop
+nop
+ba ciclo
+nop
+nop
+nop
+nop
+or %l0, 0, %o0					--return
+nop
+nop
+nop
+jmpl %o7, 2, %g0
+nop
+nop
+nop
+nop
+nop								--fin
